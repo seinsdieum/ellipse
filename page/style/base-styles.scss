@@ -1,0 +1,70 @@
+//colors
+$web-black: rgb(34,34,34);
+$web-black-half: rgba(34,34,34, 0.5);
+$web-white: rgb(190,190,190);
+$web-blue: rgb(140, 140, 240);
+
+//fonts
+$font-main: "Myanmar Text";
+$font-def: "Myanmar Text";
+
+//paddings
+$padding-def: 2vh;
+
+//sizes
+$size-header: 4vh;
+$size-def: 2vh;
+
+//border
+$border-def: 2px solid $web-black;
+$border-invert: 2px solid $web-white;
+$border-radius-def: 7px;
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background: $web-blue;
+}
+
+div.page-container {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: $size-header;
+  font-family: $font-main;
+  color: $web-white;
+}
+
+p {
+  font-size: $size-def;
+  font-family: $font-def;
+  color: $web-white;
+}
+
+header {
+  display: flex;
+  padding: $padding-def;
+  flex-direction: row;
+  max-width: 100%;
+  background: $web-black;
+}
+
+div.row {
+  display: flex;
+  flex-direction: row;
+}
+
+article {
+  max-width: 100%;
+  margin: $padding-def;
+  padding: $padding-def;
+  background: $web-black;
+  border-radius: $border-radius-def;
+}
+
+article.half-transparent {
+  background: $web-black-half;
+}

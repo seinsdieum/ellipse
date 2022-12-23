@@ -1,0 +1,50 @@
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background: rgb(140, 140, 240);
+}
+
+div.page-container {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 4vh;
+  font-family: "Myanmar Text";
+  color: rgb(190, 190, 190);
+}
+
+p {
+  font-size: 2vh;
+  font-family: "Myanmar Text";
+  color: rgb(190, 190, 190);
+}
+
+header {
+  display: flex;
+  padding: 2vh;
+  flex-direction: row;
+  max-width: 100%;
+  background: rgb(34, 34, 34);
+}
+
+div.row {
+  display: flex;
+  flex-direction: row;
+}
+
+article {
+  max-width: 100%;
+  margin: 2vh;
+  padding: 2vh;
+  background: rgb(34, 34, 34);
+  border-radius: 7px;
+}
+
+article.half-transparent {
+  background: rgba(34, 34, 34, 0.5);
+}
+
+/*# sourceMappingURL=base-styles.css.map */
