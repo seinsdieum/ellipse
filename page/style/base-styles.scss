@@ -2,29 +2,38 @@
 $web-black: rgb(34,34,34);
 $web-black-half: rgba(34,34,34, 0.5);
 $web-white: rgb(190,190,190);
-$web-blue: rgb(140, 140, 240);
+$web-blue: rgb(82, 82, 145);
 
 //fonts
-$font-main: "Myanmar Text";
-$font-def: "Myanmar Text";
+$font-main: "Segoe UI";
+$font-def: "Segoe UI";
 
 //paddings
 $padding-def: 2vh;
 
 //sizes
-$size-header: 4vh;
+$size-header: 3vh;
 $size-def: 2vh;
 
 //border
 $border-def: 2px solid $web-black;
 $border-invert: 2px solid $web-white;
+$border-transparent: 2px solid transparent;
 $border-radius-def: 7px;
+$border-radius-small: 3px;
 
 body {
   padding: 0;
   margin: 0;
   height: 100%;
   background: $web-blue;
+  background-image: url("../../src/img/longpic2.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+div {
+
 }
 
 div.page-container {
@@ -35,26 +44,136 @@ div.page-container {
 h1 {
   font-size: $size-header;
   font-family: $font-main;
-  color: $web-white;
 }
 
 p {
   font-size: $size-def;
   font-family: $font-def;
-  color: $web-white;
+  margin: 0 auto;
+  text-align: center;
 }
 
 header {
   display: flex;
   padding: $padding-def;
   flex-direction: row;
+  justify-content: space-between;
   max-width: 100%;
   background: $web-black;
+  position: sticky;
+}
+
+header, article, button {
+  color: $web-white;
 }
 
 div.row {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+}
+
+div.white-line {
+  width: 80%;
+  height:1px;
+  background: $web-white;
+  margin: 0 auto;
+  margin-top: $padding-def;
+  margin-bottom: $padding-def;
+}
+
+div.navigation-container {
+  max-height: 100%;
+  max-width: 80%;
+  display: flex;
+  flex-direction: row;
+}
+
+button.navigation {
+  border: $border-invert;
+  background: $web-black;
+  border-radius: $border-radius-def;
+  padding: $padding-def;
+  transition: 0.3s all ease-in;
+}
+
+button.article-navigation {
+  border: $border-invert;
+  background: transparent;
+  border-radius: $border-radius-def;
+  padding: $padding-def;
+  transition: 0.3s all ease-in;
+}
+
+button.navigation:hover, button.article-navigation:hover {
+  border: $border-transparent;
+  background: $web-white;
+  transition: 0.3s all ease-out;
+  color: $web-black;
+}
+
+ul.button-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.button-list li {
+  float: left;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+}
+
+button.article {
+  width: 10vw;
+  height: 10vw;
+  background: $web-black;
+  color: $web-white;
+  font-family: $font-def;
+  font-size: $size-header;
+  border-radius: $border-radius-small;
+  border: none;
+  transition: 0.9s all ease-out;
+}
+
+button.premiere {
+  width: 20vw;
+  height: 30vw;
+  background: $web-black;
+  color: $web-white;
+  font-family: $font-def;
+  border-radius: $border-radius-small;
+  font-size: $size-header;
+  border: none;
+  transition: 0.9s all ease-out;
+}
+
+button.article:hover {
+  background: $web-white;
+  color: $web-black;
+  transform: perspective(10cm) rotateY(25deg) ;
+  transition: 1.2s all ease-out;
+}
+
+  button.premiere:hover {
+  background: $web-white;
+  color: $web-black;
+  transform: perspective(15cm) rotateY(10deg);
+  transition: 1.2s all ease-out;
+}
+
+img {
+  max-width: 20vw;
+}
+
+img.item, svg.item {
+  width:100%;
+  height:100%;
+}
+
+svg.logo, img.logo {
+  max-width: 8vh;
+  margin: $padding-def;
 }
 
 article {
