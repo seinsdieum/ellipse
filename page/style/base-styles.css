@@ -1,3 +1,38 @@
+@keyframes reflection-black {
+  /*  0% {
+      background: $web-black;
+    }
+    5% {
+      background: $web-white;
+    }
+    10% {
+      background: $web-black;
+    }
+    30% {
+      background: $web-black;
+    }
+    80% {
+      background: $web-white;
+    }
+    100% {
+      background: $web-black;
+    }*/
+  0% {
+    background: rgb(34, 34, 34);
+  }
+  25% {
+    background: rgb(190, 190, 190);
+  }
+  50% {
+    background: rgb(34, 34, 34);
+  }
+  75% {
+    background: rgb(190, 190, 190);
+  }
+  100% {
+    background: rgb(34, 34, 34);
+  }
+}
 body {
   display: flex;
   flex-direction: column;
@@ -153,6 +188,7 @@ button.premiere {
   border-radius: 3px;
   font-size: 4vh;
   border: none;
+  z-index: -1;
   transition: 0.9s all ease-out;
 }
 
@@ -193,7 +229,7 @@ article {
 }
 
 article.half-transparent {
-  background: rgba(34, 34, 34, 0.5);
+  background: rgba(34, 34, 34, 0.8);
 }
 
 /*# sourceMappingURL=base-styles.css.map */

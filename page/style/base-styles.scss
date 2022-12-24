@@ -1,6 +1,6 @@
 //colors
 $web-black: rgb(34,34,34);
-$web-black-half: rgba(34,34,34, 0.5);
+$web-black-half: rgba(34,34,34, 0.8);
 $web-white: rgb(190,190,190);
 $web-blue: rgb(82, 82, 145);
 
@@ -21,6 +21,46 @@ $border-invert: 2px solid $web-white;
 $border-transparent: 2px solid transparent;
 $border-radius-def: 7px;
 $border-radius-small: 3px;
+
+@keyframes reflection-black {
+/*  0% {
+    background: $web-black;
+  }
+  5% {
+    background: $web-white;
+  }
+  10% {
+    background: $web-black;
+  }
+  30% {
+    background: $web-black;
+  }
+  80% {
+    background: $web-white;
+  }
+  100% {
+    background: $web-black;
+  }*/
+  0% {
+    background: $web-black;
+  }
+
+  25% {
+    background: $web-white;
+  }
+
+  50% {
+    background: $web-black;
+  }
+
+  75% {
+    background: $web-white;
+  }
+
+  100% {
+    background: $web-black;
+  }
+}
 
 body {
   display: flex;
@@ -173,6 +213,7 @@ button.article {
 }
 
 button.premiere {
+
   width: 20vw;
   height: 30vw;
   background: $web-black;
@@ -181,7 +222,9 @@ button.premiere {
   border-radius: $border-radius-small;
   font-size: $size-header;
   border: none;
+  z-index: -1;
   transition: 0.9s all ease-out;
+
 }
 
 button.article:hover {
@@ -192,10 +235,13 @@ button.article:hover {
 }
 
   button.premiere:hover {
+
   background: $web-white;
   color: $web-black;
   transform: perspective(15cm) rotateY(10deg);
-  transition: 1.2s all ease-out;
+
+
+    transition: 1.2s all ease-out;
 }
 
 img {
