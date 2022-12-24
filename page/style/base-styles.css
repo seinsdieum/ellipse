@@ -1,4 +1,6 @@
 body {
+  display: flex;
+  flex-direction: column;
   padding: 0;
   margin: 0;
   height: 100%;
@@ -14,25 +16,40 @@ div.page-container {
 }
 
 h1 {
-  font-size: 3vh;
-  font-family: "Segoe UI";
+  font-size: 4vh;
+  font-family: "Radnika Medium";
+  font-style: normal;
+  font-weight: lighter;
+  padding: 1vh;
+}
+
+.warning h1 {
+  font-size: 2vh;
+  flex: 5;
 }
 
 p {
-  font-size: 2vh;
+  font-size: 3vh;
   font-family: "Segoe UI";
   margin: 0 auto;
   text-align: center;
+  max-width: 70vw;
 }
 
 header {
+  top: 0;
+  flex: 1;
   display: flex;
   padding: 2vh;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   max-width: 100%;
   background: rgb(34, 34, 34);
   position: sticky;
+}
+
+header.warning {
+  flex: 0;
 }
 
 header, article, button {
@@ -59,6 +76,23 @@ div.navigation-container {
   max-width: 80%;
   display: flex;
   flex-direction: row;
+}
+
+div.empty {
+  background: transparent;
+  height: 100vh;
+}
+
+#back-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -3;
 }
 
 button.navigation {
@@ -88,6 +122,8 @@ ul.button-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  vertical-align: center;
+  padding: 1vh;
 }
 
 ul.button-list li {
@@ -102,7 +138,7 @@ button.article {
   background: rgb(34, 34, 34);
   color: rgb(190, 190, 190);
   font-family: "Segoe UI";
-  font-size: 3vh;
+  font-size: 4vh;
   border-radius: 3px;
   border: none;
   transition: 0.9s all ease-out;
@@ -115,7 +151,7 @@ button.premiere {
   color: rgb(190, 190, 190);
   font-family: "Segoe UI";
   border-radius: 3px;
-  font-size: 3vh;
+  font-size: 4vh;
   border: none;
   transition: 0.9s all ease-out;
 }
@@ -145,7 +181,7 @@ img.item, svg.item {
 
 svg.logo, img.logo {
   max-width: 8vh;
-  margin: 2vh;
+  padding: 1vh;
 }
 
 article {

@@ -5,15 +5,15 @@ $web-white: rgb(190,190,190);
 $web-blue: rgb(82, 82, 145);
 
 //fonts
-$font-main: "Segoe UI";
+$font-main: "Radnika Medium";
 $font-def: "Segoe UI";
 
 //paddings
 $padding-def: 2vh;
 
 //sizes
-$size-header: 3vh;
-$size-def: 2vh;
+$size-header: 4vh;
+$size-def: 3vh;
 
 //border
 $border-def: 2px solid $web-black;
@@ -23,6 +23,8 @@ $border-radius-def: 7px;
 $border-radius-small: 3px;
 
 body {
+  display: flex;
+  flex-direction: column;
   padding: 0;
   margin: 0;
   height: 100%;
@@ -30,10 +32,6 @@ body {
   background-image: url("../../src/img/longpic2.png");
   background-repeat: no-repeat;
   background-size: 100%;
-}
-
-div {
-
 }
 
 div.page-container {
@@ -44,6 +42,14 @@ div.page-container {
 h1 {
   font-size: $size-header;
   font-family: $font-main;
+  font-style: normal;
+  font-weight: lighter;
+  padding: 1vh;
+}
+
+.warning h1 {
+  font-size: 2vh;
+  flex: 5;
 }
 
 p {
@@ -51,16 +57,23 @@ p {
   font-family: $font-def;
   margin: 0 auto;
   text-align: center;
+  max-width: 70vw;
 }
 
 header {
+  top: 0;
+  flex:1;
   display: flex;
   padding: $padding-def;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   max-width: 100%;
   background: $web-black;
   position: sticky;
+}
+
+header.warning {
+  flex: 0;
 }
 
 header, article, button {
@@ -87,6 +100,27 @@ div.navigation-container {
   max-width: 80%;
   display: flex;
   flex-direction: row;
+}
+
+div.empty {
+  background: transparent;
+  height: 100vh;
+}
+
+#back-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -3;
+}
+
+#back-image {
+
 }
 
 button.navigation {
@@ -116,6 +150,8 @@ ul.button-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  vertical-align: center;
+  padding: 1vh;
 }
 
 ul.button-list li {
@@ -173,7 +209,7 @@ img.item, svg.item {
 
 svg.logo, img.logo {
   max-width: 8vh;
-  margin: $padding-def;
+  padding: 1vh;
 }
 
 article {
