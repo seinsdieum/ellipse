@@ -1,2 +1,2 @@
 # ellipse
-vape ellipse page
+[vape ellipse page](seinsdieum.github.io/ellipse/page/base)
