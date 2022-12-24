@@ -232,4 +232,25 @@ article.half-transparent {
   background: rgba(34, 34, 34, 0.8);
 }
 
+@media screen and (min-width: 240px) and (max-width: 760px) {
+  header.warning h1 {
+    font-size: 3vw;
+  }
+  button.article-navigation p {
+    display: none;
+  }
+  button.article-navigation {
+    height: 100%;
+    width: inherit;
+  }
+  header {
+    justify-content: space-between;
+  }
+  ul.button-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
 /*# sourceMappingURL=base-styles.css.map */

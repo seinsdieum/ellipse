@@ -269,3 +269,35 @@ article {
 article.half-transparent {
   background: $web-black-half;
 }
+@media screen and (min-width: 240px) and (max-width: 760px) {
+  header.warning h1 {
+    font-size: 3vw;
+  }
+
+  button.article-navigation p {
+    display: none;
+  }
+
+  button.article-navigation {
+    height: 100%;
+    width: inherit;
+  }
+
+  ul.button-list li {
+
+  }
+
+  header {
+    justify-content: space-between;
+  }
+
+  ul.button-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  button.article-navigation:nth-child(3n+1) {
+    
+  }
+}
