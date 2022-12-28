@@ -9,6 +9,7 @@ function handleMotionEvent(event) {
     for(let text of textList) {
         text.style.transform = `translateX(${x}) translateY(${y}) translateZ(${z})`
     }
+    document.querySelector('article').style.transform = `skew(${x})`
 
 }
 
