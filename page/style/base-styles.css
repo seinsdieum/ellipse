@@ -91,10 +91,15 @@ header, article, button {
   color: rgb(190, 190, 190);
 }
 
-div.row {
+div.row, div.update-row {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+div.update-row {
+  border-radius: 7px;
+  transition: 1s all linear;
 }
 
 div.white-line {
@@ -139,11 +144,19 @@ button.navigation {
 }
 
 button.article-navigation {
+  height: 100%;
   border: 2px solid rgb(190, 190, 190);
   background: transparent;
   border-radius: 7px;
   padding: 2vh;
   transition: 0.03s all ease-in;
+}
+
+button.article-navigation:focus {
+  border: 2px solid transparent;
+  background: rgb(190, 190, 190);
+  transition: 0.03s all ease-out;
+  color: rgb(34, 34, 34);
 }
 
 button.navigation:hover, button.article-navigation:hover {
@@ -192,7 +205,7 @@ button.premiere {
   border-radius: 3px;
   font-size: 4vh;
   border: none;
-  transition: 0.05s all ease-out;
+  transition: 0.09s all ease-out;
 }
 
 button.article:hover {
@@ -205,7 +218,7 @@ button.article:hover {
 button.premiere:hover {
   background: rgb(160, 160, 160);
   color: rgb(34, 34, 34);
-  transition: 0.05s all ease-out;
+  transition: 0.09s all ease-out;
 }
 
 img {

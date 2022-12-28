@@ -120,10 +120,15 @@ header, article, button {
   color: $web-white;
 }
 
-div.row {
+div.row, div.update-row {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+div.update-row {
+  border-radius: $border-radius-def;
+  transition: 1s all linear;
 }
 
 div.white-line {
@@ -172,11 +177,19 @@ button.navigation {
 }
 
 button.article-navigation {
+  height: 100%;
   border: $border-invert;
   background: transparent;
   border-radius: $border-radius-def;
   padding: $padding-def;
   transition: 0.03s all ease-in;
+}
+
+button.article-navigation:focus {
+  border: $border-transparent;
+  background: $web-white;
+  transition: 0.03s all ease-out;
+  color: $web-black;
 }
 
 button.navigation:hover, button.article-navigation:hover {
@@ -226,7 +239,7 @@ button.premiere {
   border-radius: $border-radius-small;
   font-size: $size-header;
   border: none;
-  transition: 0.05s all ease-out;
+  transition: 0.09s all ease-out;
 
 }
 
@@ -244,7 +257,7 @@ button.article:hover {
   //transform: perspective(15cm) rotateY(10deg);
 
 
-    transition: 0.05s all ease-out;
+    transition: 0.09s all ease-out;
 }
 
 img {
