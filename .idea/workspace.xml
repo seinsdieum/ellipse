@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ec2ea99-4bd9-452f-83b9-4151fb573169" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/page/base/Navigation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/page/base/devicemotion.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/base/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/base/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/base/devicemotion.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/devicemotion.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/style/base-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/page/style/base-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/style/base-styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/page/style/base-styles.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/style/base-styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/page/style/base-styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +64,7 @@
       <workItem from="1671877799189" duration="2795000" />
       <workItem from="1672067146045" duration="1461000" />
       <workItem from="1672235465575" duration="6345000" />
-      <workItem from="1672256100077" duration="6694000" />
+      <workItem from="1672256100077" duration="7658000" />
     </task>
     <servers />
   </component>
