@@ -1,2 +1,1 @@
-# ellipse
-[vape ellipse page](seinsdieum.github.io/page/base)
+# [ellipse](seinsdieum.github.io/page/base)
