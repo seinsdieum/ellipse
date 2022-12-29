@@ -1,8 +1,15 @@
 
-function rowPoint()
-{
+function row() {
     let row = document.createElement('div')
-    row.className = 'update-row'
+    row.className = 'row'
+    return row
+}
+
+function articlePoint()
+{
+    let row = document.createElement('article')
+    row.className = 'half-transparent'
+    row.style.background = 'black'
     return row
 }
 
@@ -12,22 +19,42 @@ function text(str) {
     return textCase
 }
 
-const product = rowPoint()
+function header(str) {
+    let textCase = document.createElement('h1')
+    textCase.append(str)
+    return textCase
+}
+
+const endLine = document.createElement("br")
+
+const product = articlePoint()
+const productFirstRow = row()
+const productSecondRow = row()
+const productThirdRow = row()
 product.style.backgroundColor = 'black'
-product.appendChild(text('lalala'));
+productFirstRow.append(header('product'))
+productSecondRow.append(text('product'))
+productThirdRow.append(header('product'))
 
-const newPoint = rowPoint()
-newPoint.style.backgroundColor = 'yellow'
-newPoint.append(text('krasava'))
+product.appendChild(productFirstRow)
+product.appendChild(productSecondRow)
+product.appendChild(productThirdRow)
 
-const company = rowPoint()
-company.style.backgroundColor = 'red'
+const newPoint = articlePoint()
+newPoint.style.backgroundColor = 'black'
+newPoint.appendChild(header('krasava'))
 
-const emptiness = rowPoint()
+const company = articlePoint()
+company.style.backgroundColor = 'black'
+
+const emptiness = articlePoint()
+emptiness.style.display = 'none'
 
 const productButton = document.getElementsByName('product-button')
 const newButton = document.getElementsByName('new-button')
 const companyButton = document.getElementsByName('company-button')
+
+const updateRow = document.querySelector('div.update-row')
 
 const element = document.querySelector('article')
 
@@ -41,37 +68,44 @@ let eventClicked = false;
 
 function showProductMenu() {
     productClicked = !productClicked
-
-
-
-
-    if(productClicked) {
-        product.style.display = 'none'
-        let current = event.target
-        console.log(current)
+    if(true) {
         changeableElement = element.firstChild
         element.firstChild.replaceWith(product)
-        product.style.display = 'block'
+        product.scrollIntoView({block:"center", behavior: "smooth"})
+        product.focus()
         console.log(product)
     } else {
-        disposeTestMenu()
     }
+
 }
 
 function showNewMenu() {
     changeableElement = element.firstChild
     element.firstChild.replaceWith(newPoint)
+
+    newPoint.scrollIntoView({block:"center", behavior: "smooth"})
     console.log(newPoint)
 }
 
 function showCompanyMenu() {
     changeableElement = element.firstChild
     element.firstChild.replaceWith(company)
+
+    company.scrollIntoView({block:"center", behavior: "smooth"})
     console.log(company)
 }
 
 
-function disposeTestMenu() {
+function disposeMenu() {
     element.firstChild.replaceWith(emptiness)
+
 }
 
+console.log(productButton)
+
+productButton[0].addEventListener("focusin", showProductMenu)
+element.firstChild.addEventListener("focusout", disposeMenu)
+newButton[0].addEventListener("focusin", showNewMenu)
+newButton[0].addEventListener("focusout", disposeMenu)
+companyButton[0].addEventListener("focusin", showCompanyMenu)
+companyButton[0].addEventListener("focusout", disposeMenu)
