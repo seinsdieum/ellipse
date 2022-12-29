@@ -62,6 +62,10 @@ $border-radius-small: 3px;
   }
 }
 
+div.header-end {
+  display: none;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -72,6 +76,9 @@ body {
   background-image: url("../../src/img/longpic2.png");
   background-repeat: no-repeat;
   background-size: 100%;
+  scroll-behavior: smooth;
+  user-select: none;
+  user-modify: none;
 }
 
 div.page-container {
@@ -120,13 +127,16 @@ header, article, button {
   color: $web-white;
 }
 
-div.row, div.update-row {
+div.row {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
 div.update-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   border-radius: $border-radius-def;
   transition: 1s all linear;
 }
