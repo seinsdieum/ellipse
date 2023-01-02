@@ -8,15 +8,12 @@ function row() {
 function articlePoint()
 {
     let row = document.createElement('article')
-    row.className = 'half-transparent'
+    row.className = 'full-screen'
     row.style.background = 'black'
+    row.style.position = 'absolute'
+    row.style.left = '0'
+    row.style.right = '0'
     return row
-}
-
-function imageBanner() {
-    let banner = document.createElement('img')
-    banner.className = 'promo'
-    return banner
 }
 
 function imageBanner(src) {
@@ -93,6 +90,8 @@ const productButton = document.getElementsByName('product-button')
 const newButton = document.getElementsByName('new-button')
 const companyButton = document.getElementsByName('company-button')
 
+const mainHeader = productButton[0].parentElement
+
 const updateRow = document.querySelector('div.update-row')
 
 const element = document.querySelector('article')
@@ -104,17 +103,20 @@ const rect = head.getBoundingClientRect()
 
 const position = (rect.bottom-rect.top)/1.2
 
+mainHeader.append(emptiness)
+changeableElement = emptiness
+
 
 function scrollToArticle() {
-    if(elementShow) {
+/*    if(elementShow) {
         window.scrollTo({
             top: position,
             behavior: "auto"
         })
-    }
+    }*/
 }
 
-function showProductMenu() {
+/*function showProductMenu() {
     changeableElement = element.firstChild
     element.firstChild.replaceWith(product)
     console.log(product)
@@ -134,6 +136,29 @@ function showCompanyMenu() {
 
 function disposeMenu() {
     element.firstChild.replaceWith(emptiness)
+}*/
+
+function showProductMenu() {
+    changeableElement.replaceWith(product)
+    changeableElement = product
+    console.log(product)
+}
+
+function showCompanyMenu() {
+    changeableElement.replaceWith(company)
+    changeableElement = company
+    console.log(company)
+}
+
+function disposeMenu() {
+    changeableElement.replaceWith(emptiness)
+    changeableElement = emptiness
+}
+
+for (let butt of document.querySelectorAll('button.article-navigation')) {
+    butt.addEventListener('mouseenter', () => {
+        disposeMenu()
+    })
 }
 
 productButton[0].addEventListener("mouseenter", () => {
@@ -143,7 +168,6 @@ productButton[0].addEventListener("mouseenter", () => {
 })
 newButton[0].addEventListener("mouseenter", () => {
     elementShow = true;
-    showNewMenu()
     scrollToArticle()
 })
 companyButton[0].addEventListener("mouseenter", () => {
@@ -152,9 +176,21 @@ companyButton[0].addEventListener("mouseenter", () => {
     scrollToArticle()
 })
 
-element.addEventListener('mouseleave', () => {
+changeableElement.addEventListener('mouseleave', () => {
     disposeMenu()
     scrollToArticle()
     elementShow = false;
 })
+
+class Menu {
+    menu
+
+    constructor(menu) {
+
+    }
+    Show() {
+
+    }
+}
+
 

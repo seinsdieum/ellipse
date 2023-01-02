@@ -1,6 +1,13 @@
+
+
 @font-face {
   font-family: "Radnika Medium";
   src: url("../../src/fonts/radnika/Radnika-Medium.otf");
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: url("../../src/fonts/segoe/segoe-bold.ttf");
 }
 
 //colors
@@ -117,6 +124,8 @@ header {
   flex:1;
   display: flex;
   padding: $padding-def;
+  padding-top: 0;
+  padding-bottom: 0;
   flex-direction: row;
   justify-content: space-between;
   max-width: 100%;
@@ -199,13 +208,6 @@ button.article-navigation {
   border-radius: $border-radius-def;
   padding: $padding-def;
   transition: 0.03s all ease-in;
-}
-
-button.article-navigation:focus {
-  border: $border-transparent;
-  background: $web-white;
-  transition: 0.03s all ease-out;
-  color: $web-black;
 }
 
 button.navigation:hover, button.article-navigation:hover {
@@ -302,6 +304,10 @@ article.half-transparent {
   background: $web-black-half;
 }
 
+article.full-screen {
+  margin: 0;
+}
+
 img.promo {
   background-color: black;
   border-radius: $border-radius-def;
@@ -328,6 +334,34 @@ img.promo {
   button.article-navigation {
     height: 100%;
     width: inherit;
+  }
+
+  @keyframes appear {
+    from {
+      display: none;
+    }
+    to {
+      display: block;
+    }
+  }
+
+  @keyframes button-anim {
+    0% {
+      border-color: white;
+    }
+
+    50% {
+      border-color: black;
+    }
+
+    100% {
+      border-color: white;
+    }
+  }
+
+  article.full-screen {
+
+    transition: 1s all linear;
   }
 
   ul.button-list li {
