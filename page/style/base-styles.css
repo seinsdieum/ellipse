@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Radnika Medium";
+  src: url("../../src/fonts/radnika/Radnika-Medium.otf");
+}
+@font-face {
+  font-family: "Segoe UI";
+  src: url("../../src/fonts/segoe/segoe-bold.ttf");
+}
 @keyframes reflection-black {
   /*  0% {
       background: $web-black;
@@ -33,17 +41,6 @@
     background: rgb(34, 34, 34);
   }
 }
-
-@font-face {
-  font-family: "Radnika Medium";
-  src: url("../../src/fonts/radnika/Radnika-Medium.otf");
-}
-
-@font-face {
-  font-family: "Segoe UI";
-  src: url("../../src/fonts/segoe/segoe-bold.ttf");
-}
-
 div.header-end {
   display: none;
 }
@@ -94,6 +91,8 @@ header {
   flex: 1;
   display: flex;
   padding: 2vh;
+  padding-top: 0;
+  padding-bottom: 0;
   flex-direction: row;
   justify-content: space-between;
   max-width: 100%;
@@ -172,13 +171,6 @@ button.article-navigation {
   border-radius: 7px;
   padding: 2vh;
   transition: 0.03s all ease-in;
-}
-
-button.article-navigation:focus {
-  border: 2px solid transparent;
-  background: rgb(190, 190, 190);
-  transition: 0.03s all ease-out;
-  color: rgb(34, 34, 34);
 }
 
 button.navigation:hover, button.article-navigation:hover {
@@ -269,6 +261,10 @@ article.half-transparent {
   background: rgba(34, 34, 34, 0.8);
 }
 
+article.full-screen {
+  margin: 0;
+}
+
 img.promo {
   background-color: black;
   border-radius: 7px;
@@ -293,6 +289,28 @@ img.promo {
   button.article-navigation {
     height: 100%;
     width: inherit;
+  }
+  @keyframes appear {
+    from {
+      display: none;
+    }
+    to {
+      display: block;
+    }
+  }
+  @keyframes button-anim {
+    0% {
+      border-color: white;
+    }
+    50% {
+      border-color: black;
+    }
+    100% {
+      border-color: white;
+    }
+  }
+  article.full-screen {
+    transition: 1s all linear;
   }
   header {
     justify-content: space-between;
