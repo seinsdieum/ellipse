@@ -33,6 +33,17 @@
     background: rgb(34, 34, 34);
   }
 }
+
+@font-face {
+  font-family: "Radnika Medium";
+  src: url("../../src/fonts/radnika/Radnika-Medium.otf");
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: url("../../src/fonts/segoe/segoe-bold.ttf");
+}
+
 div.header-end {
   display: none;
 }

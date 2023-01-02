@@ -1,3 +1,4 @@
+let elementShow = false;
 function row() {
     let row = document.createElement('div')
     row.className = 'row'
@@ -105,10 +106,12 @@ const position = (rect.bottom-rect.top)/1.2
 
 
 function scrollToArticle() {
-    window.scrollTo({
-        top: position,
-        behavior:"smooth"
-    })
+    if(elementShow) {
+        window.scrollTo({
+            top: position,
+            behavior: "auto"
+        })
+    }
 }
 
 function showProductMenu() {
@@ -134,16 +137,24 @@ function disposeMenu() {
 }
 
 productButton[0].addEventListener("mouseenter", () => {
+    elementShow = true;
     showProductMenu()
     scrollToArticle()
 })
 newButton[0].addEventListener("mouseenter", () => {
+    elementShow = true;
     showNewMenu()
     scrollToArticle()
 })
 companyButton[0].addEventListener("mouseenter", () => {
+    elementShow = true;
     showCompanyMenu()
     scrollToArticle()
 })
 
-element.addEventListener('mouseleave', disposeMenu)
+element.addEventListener('mouseleave', () => {
+    disposeMenu()
+    scrollToArticle()
+    elementShow = false;
+})
+
