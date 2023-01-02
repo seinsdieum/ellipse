@@ -1,4 +1,4 @@
-
+let elementShow = false;
 function row() {
     let row = document.createElement('div')
     row.className = 'row'
@@ -13,10 +13,43 @@ function articlePoint()
     return row
 }
 
+function imageBanner() {
+    let banner = document.createElement('img')
+    banner.className = 'promo'
+    return banner
+}
+
+function imageBanner(src) {
+    let banner = document.createElement('img')
+    banner.className = 'promo'
+    banner.src = `../../src/img/banner/${src}`
+    return banner
+}
+
+function rightHeaderPos() {
+    const warning = document.querySelector('header.warning')
+    const emptySpacer = document.querySelector('div.empty')
+    let warningRect = warning.getBoundingClientRect()
+    let emptyRect = emptySpacer.getBoundingClientRect()
+
+    let distance = ((emptyRect.bottom+emptyRect.top)+(warningRect.bottom-warningRect.top))
+
+    return distance
+}
+
 function text(str) {
     let textCase = document.createElement('p')
     textCase.append(str)
     return textCase
+}
+
+function switchImage(imageElement, list, number) {
+    number++
+    if (number == list.length) {
+        number = 0
+    }
+    imageElement.src = list[number];
+
 }
 
 function header(str) {
@@ -25,20 +58,26 @@ function header(str) {
     return textCase
 }
 
-const endLine = document.createElement("br")
-
 const product = articlePoint()
+
 const productFirstRow = row()
 const productSecondRow = row()
 const productThirdRow = row()
+const productBanner = imageBanner()
+let productBannerImages = ('../../src/img/banner/promo1.jpg','../../src/img/banner/promo2.jpg')
+let thisImg = 1;
+productBanner.src = '../../src/img/banner/promo1.jpg'
 product.style.backgroundColor = 'black'
 productFirstRow.append(header('product'))
-productSecondRow.append(text('product'))
+productSecondRow.append(productBanner)
 productThirdRow.append(header('product'))
-
+switchImage(productBanner, productBannerImages, thisImg)
 product.appendChild(productFirstRow)
 product.appendChild(productSecondRow)
 product.appendChild(productThirdRow)
+product.addEventListener('waiting', () => {
+    switchImage(productBanner, productBannerImages, thisImg)
+})
 
 const newPoint = articlePoint()
 newPoint.style.backgroundColor = 'black'
@@ -60,52 +99,62 @@ const element = document.querySelector('article')
 
 let changeableElement;
 
-let productClicked = false;
-let newClicked = false;
-let companyClicked = false;
-let supportClicked = false;
-let eventClicked = false;
+const head = element
+const rect = head.getBoundingClientRect()
+
+const position = (rect.bottom-rect.top)/1.2
+
+
+function scrollToArticle() {
+    if(elementShow) {
+        window.scrollTo({
+            top: position,
+            behavior: "auto"
+        })
+    }
+}
 
 function showProductMenu() {
-    productClicked = !productClicked
-    if(true) {
-        changeableElement = element.firstChild
-        element.firstChild.replaceWith(product)
-        product.scrollIntoView({block:"center", behavior: "smooth"})
-        product.focus()
-        console.log(product)
-    } else {
-    }
-
+    changeableElement = element.firstChild
+    element.firstChild.replaceWith(product)
+    console.log(product)
 }
 
 function showNewMenu() {
     changeableElement = element.firstChild
     element.firstChild.replaceWith(newPoint)
-
-    newPoint.scrollIntoView({block:"center", behavior: "smooth"})
     console.log(newPoint)
 }
 
 function showCompanyMenu() {
     changeableElement = element.firstChild
     element.firstChild.replaceWith(company)
-
-    company.scrollIntoView({block:"center", behavior: "smooth"})
     console.log(company)
 }
 
-
 function disposeMenu() {
     element.firstChild.replaceWith(emptiness)
-
 }
 
-console.log(productButton)
+productButton[0].addEventListener("mouseenter", () => {
+    elementShow = true;
+    showProductMenu()
+    scrollToArticle()
+})
+newButton[0].addEventListener("mouseenter", () => {
+    elementShow = true;
+    showNewMenu()
+    scrollToArticle()
+})
+companyButton[0].addEventListener("mouseenter", () => {
+    elementShow = true;
+    showCompanyMenu()
+    scrollToArticle()
+})
 
-productButton[0].addEventListener("focusin", showProductMenu)
-element.firstChild.addEventListener("focusout", disposeMenu)
-newButton[0].addEventListener("focusin", showNewMenu)
-newButton[0].addEventListener("focusout", disposeMenu)
-companyButton[0].addEventListener("focusin", showCompanyMenu)
-companyButton[0].addEventListener("focusout", disposeMenu)
+element.addEventListener('mouseleave', () => {
+    disposeMenu()
+    scrollToArticle()
+    elementShow = false;
+})
+

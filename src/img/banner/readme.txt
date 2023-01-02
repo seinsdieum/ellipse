@@ -1,0 +1,1 @@
+resolution for all banners: 
