@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/base/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/Navigation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/base/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/base/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/style/base-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/page/style/base-styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/style/base-styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/page/style/base-styles.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/style/base-styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/page/style/base-styles.scss" afterDir="false" />
@@ -69,7 +68,10 @@
       <workItem from="1672067146045" duration="1461000" />
       <workItem from="1672235465575" duration="6345000" />
       <workItem from="1672256100077" duration="8839000" />
-      <workItem from="1672325580266" duration="12461000" />
+      <workItem from="1672325580266" duration="12804000" />
+      <workItem from="1672348334531" duration="338000" />
+      <workItem from="1672354945524" duration="8998000" />
+      <workItem from="1672422013103" duration="229000" />
     </task>
     <servers />
   </component>
