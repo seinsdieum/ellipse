@@ -102,7 +102,7 @@ div.disclaimer {
   left: 0;
   right: 0;
   min-width: 50%;
-  min-height: 40%;
+  max-height: 100%;
   color: #fff;
   z-index: 200;
   display: flex;
@@ -207,7 +207,7 @@ button.navigation {
 }
 
 @keyframes some-strobo {}
-button.article-navigation, button.text-navigation {
+button.article-navigation, button.text-navigation, button.hamburger {
   vertical-align: center;
   height: 100%;
   border: 2px solid rgb(190, 190, 190);
@@ -218,11 +218,11 @@ button.article-navigation, button.text-navigation {
   transition: 0.03s all ease-in;
 }
 
-button.text-navigation {
+button.text-navigation, button.hamburger {
   border: 2px solid transparent;
 }
 
-button.navigation:hover, button.article-navigation:hover, button.text-navigation:hover {
+button.navigation:hover, button.article-navigation:hover, button.text-navigation:hover, button.hamburger:hover {
   border: 2px solid transparent;
   background: rgb(190, 190, 190);
   transition: 0.03s all ease-out;
@@ -297,6 +297,21 @@ svg.logo, img.logo {
   padding: 1vh;
 }
 
+button.premiere:hover svg, button.article-navigation:hover svg, button.text-navigation:hover svg, button.hamburger:hover svg, button.premiere:hover img, button.article-navigation:hover img, button.text-navigation:hover img, button.hamburger:hover img {
+  fill: black;
+  stroke: rgb(190, 190, 190) !important;
+  transition: 0.03s all ease-out;
+}
+
+svg.mobile, img.mobile {
+  width: 100%;
+  height: 100%;
+  display: none;
+  stroke: rgb(34, 34, 34) !important;
+  fill: rgb(190, 190, 190);
+  margin: 0;
+}
+
 article {
   max-width: 100%;
   margin: 2vh;
@@ -327,7 +342,18 @@ img.promo {
   margin-left: 1vw;
 }
 
+button.hamburger {
+  display: none;
+}
+
 @media screen and (min-width: 240px) and (max-width: 760px) {
+  svg.mobile, img.mobile {
+    display: block;
+  }
+  button.hamburger {
+    display: block;
+    max-height: 100%;
+  }
   header.warning h1 {
     font-size: 3vw;
   }
@@ -335,8 +361,16 @@ img.promo {
     display: none;
   }
   button.article-navigation, button.text-navigation {
+    border: 1px solid rgb(190, 190, 190);
     height: 100%;
     width: inherit;
+    padding: 2vw;
+  }
+  div.disclaimer button {
+    border: 1px solid transparent;
+  }
+  button.article-navigation:hover, button.text-navigation:hover {
+    border: 1px solid transparent;
   }
   @keyframes appear {
     from {

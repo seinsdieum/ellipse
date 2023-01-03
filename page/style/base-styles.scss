@@ -136,7 +136,7 @@ div.disclaimer {
   left: 0;
   right: 0;
   min-width: 50%;
-  min-height: 40%;
+  max-height: 100%;
   color: #fff;
   z-index: 200;
   display: flex;
@@ -248,7 +248,7 @@ button.navigation {
 
 }
 
-button.article-navigation, button.text-navigation {
+button.article-navigation, button.text-navigation, button.hamburger {
   vertical-align: center  ;
   height: 100%;
   border: $border-invert;
@@ -259,14 +259,15 @@ button.article-navigation, button.text-navigation {
   transition: 0.03s all ease-in;
 }
 
-button.text-navigation {
+button.text-navigation, button.hamburger {
   border: $border-transparent
 }
 
-button.navigation:hover, button.article-navigation:hover, button.text-navigation:hover {
+button.navigation:hover, button.article-navigation:hover, button.text-navigation:hover, button.hamburger:hover {
   border: $border-transparent;
   background: $web-white;
   transition: 0.03s all ease-out;
+
   color: black;
 }
 
@@ -344,6 +345,21 @@ svg.logo, img.logo {
   padding: 1vh;
 }
 
+button.premiere:hover svg, button.article-navigation:hover svg, button.text-navigation:hover svg, button.hamburger:hover svg,  button.premiere:hover img, button.article-navigation:hover img, button.text-navigation:hover img, button.hamburger:hover img {
+  fill: black;
+  stroke: $web-white !important;
+  transition: 0.03s all ease-out;
+}
+
+svg.mobile, img.mobile {
+  width: 100%;
+  height: 100%;
+  display: none;
+  stroke: $web-black !important;
+  fill: $web-white;
+  margin: 0;
+}
+
 article {
   max-width: 100%;
   margin: $padding-def;
@@ -374,7 +390,20 @@ img.promo {
   margin-left: 1vw;
 }
 
+button.hamburger {
+  display: none
+}
+
 @media screen and (min-width: 240px) and (max-width: 760px) {
+  svg.mobile, img.mobile {
+    display: block;
+  }
+
+  button.hamburger {
+    display: block;
+    max-height: 100%;
+  }
+
   header.warning h1 {
     font-size: 3vw;
   }
@@ -384,8 +413,18 @@ img.promo {
   }
 
   button.article-navigation, button.text-navigation {
+    border: 1px solid $web-white;
     height: 100%;
     width: inherit;
+    padding: 2vw;
+  }
+
+  div.disclaimer button {
+    border: 1px solid transparent;
+  }
+
+  button.article-navigation:hover, button.text-navigation:hover {
+    border: 1px solid transparent;
   }
 
   @keyframes appear {
