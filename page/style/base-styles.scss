@@ -25,14 +25,14 @@ $padding-def: 2vh;
 
 //sizes
 $size-header: 4vh;
-$size-def: 2vh;
+$size-def: 3vh;
 
 //border
 $border-def: 2px solid $web-black;
 $border-invert: 2px solid $web-white;
 $border-transparent: 2px solid transparent;
-$border-radius-def: 7px;
-$border-radius-small: 3px;
+$border-radius-def: 1vh;
+$border-radius-small: 7px;
 
 @keyframes reflection-black {
 /*  0% {
@@ -84,9 +84,7 @@ body {
   padding: 0;
   margin: 0;
   height: 100%;
-  background: $web-blue;
-  background-image: url("../../src/img/longpic2.png");
-  background-repeat: no-repeat;
+  background: $web-blue url("../../src/img/longpic2.png") no-repeat;
   background-size: 100%;
   scroll-behavior: smooth;
   user-select: none;
@@ -109,6 +107,51 @@ h1 {
 .warning h1 {
   font-size: 2vh;
   flex: 5;
+}
+
+div.color-layer {
+  margin: auto;
+  padding: 20px;
+  position: fixed;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  z-index: 200;
+
+  background: rgba(34,34,34, 0.6);
+}
+
+div.disclaimer {
+  margin: auto;
+  padding: 20px;
+  position: fixed;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  left: 0;
+  right: 0;
+  min-width: 50%;
+  min-height: 40%;
+  color: #fff;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  background: $web-black;
+  border-radius: $border-radius-def;
+}
+
+div.disclaimer h1 {
+  margin: 0 auto;
+  font-size: 3vw;
+}
+
+div.disclaimer ul {
+  align-self: center;
 }
 
 p {
@@ -201,26 +244,35 @@ button.navigation {
   transition: 0.03s all ease-in;
 }
 
-button.article-navigation {
+@keyframes some-strobo {
+
+}
+
+button.article-navigation, button.text-navigation {
+  vertical-align: center  ;
   height: 100%;
   border: $border-invert;
   background: transparent;
   border-radius: $border-radius-def;
   padding: $padding-def;
+  height: 100%;
   transition: 0.03s all ease-in;
 }
 
-button.navigation:hover, button.article-navigation:hover {
+button.text-navigation {
+  border: $border-transparent
+}
+
+button.navigation:hover, button.article-navigation:hover, button.text-navigation:hover {
   border: $border-transparent;
   background: $web-white;
   transition: 0.03s all ease-out;
-  color: $web-black;
+  color: black;
 }
 
-ul.button-list, ul.button-column-list {
+ul.button-list, ul.button-column-list, ul.text-button-list {
   list-style: none;
   padding: 0;
-  margin: 0;
   vertical-align: center;
   padding: 1vh;
 }
@@ -229,7 +281,7 @@ ul.button-column-list li {
   margin: 1vh;
 }
 
-ul.button-list li {
+ul.button-list li, ul.text-button-list li {
   float: left;
   margin-left: 0.5vw;
   margin-right: 0.5vw;
@@ -327,11 +379,11 @@ img.promo {
     font-size: 3vw;
   }
 
-  button.article-navigation p {
+  button.article-navigation p, button.text-navigation p {
     display: none;
   }
 
-  button.article-navigation {
+  button.article-navigation, button.text-navigation {
     height: 100%;
     width: inherit;
   }
@@ -368,11 +420,15 @@ img.promo {
 
   }
 
+  ul.text-button-list li {
+    margin: 0;
+  }
+
   header {
     justify-content: space-between;
   }
 
-  ul.button-list {
+  ul.button-list, ul.text-button-list {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
