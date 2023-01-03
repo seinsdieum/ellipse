@@ -13,6 +13,8 @@ function articlePoint()
     row.style.position = 'absolute'
     row.style.left = '0'
     row.style.right = '0'
+    row.style.borderRadius = '0 '
+    row.style.transform = 'translateY(1vh)'
     return row
 }
 
@@ -155,9 +157,10 @@ function disposeMenu() {
     changeableElement = emptiness
 }
 
-for (let butt of document.querySelectorAll('button.article-navigation')) {
+for (let butt of document.querySelectorAll('button')) {
     butt.addEventListener('mouseenter', () => {
         disposeMenu()
+        elementShow = false;
     })
 }
 
@@ -165,22 +168,24 @@ productButton[0].addEventListener("mouseenter", () => {
     elementShow = true;
     showProductMenu()
     scrollToArticle()
+    addLeaveListener(product)
 })
-newButton[0].addEventListener("mouseenter", () => {
-    elementShow = true;
-    scrollToArticle()
-})
+
 companyButton[0].addEventListener("mouseenter", () => {
     elementShow = true;
     showCompanyMenu()
     scrollToArticle()
+    addLeaveListener(company)
 })
 
-changeableElement.addEventListener('mouseleave', () => {
-    disposeMenu()
-    scrollToArticle()
-    elementShow = false;
-})
+function addLeaveListener(elem) {
+
+    elem.addEventListener('mouseleave', () => {
+        disposeMenu()
+        scrollToArticle()
+        elementShow = false;
+    })
+}
 
 class Menu {
     menu
