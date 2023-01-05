@@ -10,6 +10,16 @@
   src: url("../../src/fonts/segoe/segoe-bold.ttf");
 }
 
+@font-face {
+  font-family: "Chisel Mark";
+  src: url("../../src/fonts/chiselMark/chisel-mark.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat Blackk";
+  src: url("../../src/fonts/montserrat-font/moserrat-black.ttf");
+}
+
 //colors
 $web-black: rgb(34,34,34);
 $web-black-half: rgba(34,34,34, 0.8);
@@ -18,7 +28,7 @@ $web-blue: rgb(82, 82, 145);
 
 //fonts
 $font-main: "Radnika Medium";
-$font-def: "Segoe UI";
+$font-def: "Radnika Medium";
 
 //paddings
 $padding-def: 2vh;
@@ -288,6 +298,13 @@ ul.button-list li, ul.text-button-list li {
   margin-right: 0.5vw;
 }
 
+#vertical ul.text-button-list li {
+  float: left;
+  margin: 2vw;
+  display: block;
+  
+}
+
 button.article {
   width: 10vw;
   height: 10vw;
@@ -342,7 +359,7 @@ img.item, svg.item {
 
 svg.logo, img.logo {
   max-width: 8vh;
-  padding: 1vh;
+  display: inline;
 }
 
 button.premiere:hover svg, button.article-navigation:hover svg, button.text-navigation:hover svg, button.hamburger:hover svg,  button.premiere:hover img, button.article-navigation:hover img, button.text-navigation:hover img, button.hamburger:hover img {
@@ -399,6 +416,15 @@ button.hamburger {
     display: block;
   }
 
+  button h1 {
+    font-size: 3vw;
+  }
+
+
+  p {
+    font-size: 3vw;
+  }
+
   button.hamburger {
     display: block;
     max-height: 100%;
@@ -413,19 +439,12 @@ button.hamburger {
   }
 
   button.article-navigation, button.text-navigation {
-    border: 1px solid $web-white;
     height: 100%;
     width: inherit;
     padding: 2vw;
   }
 
-  div.disclaimer button {
-    border: 1px solid transparent;
-  }
 
-  button.article-navigation:hover, button.text-navigation:hover {
-    border: 1px solid transparent;
-  }
 
   @keyframes appear {
     from {

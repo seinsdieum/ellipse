@@ -1,3 +1,5 @@
+
+
 const textList = document.querySelectorAll('p')
 function handleMotionEvent(event) {
 
@@ -13,4 +15,6 @@ function handleMotionEvent(event) {
 
 }
 
-window.addEventListener("devicemotion", handleMotionEvent, true);
+window.addEventListener('devicemotion', (event) => {
+    console.log(`${event.acceleration.x} m/s2`);
+}, true);

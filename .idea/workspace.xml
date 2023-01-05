@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ec2ea99-4bd9-452f-83b9-4151fb573169" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/base/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/Navigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/base/devicemotion.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/devicemotion.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/base/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/base/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/base/productMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/productMenu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/style/base-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/page/style/base-styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/style/base-styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/page/style/base-styles.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/style/base-styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/page/style/base-styles.scss" afterDir="false" />
@@ -48,7 +48,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/seinsdieum/.local/share/JetBrains/Toolbox/apps/WebStorm/ch-0/223.8214.51/plugins/sass/lib/sass.jar",
+    "last_opened_file_path": "/home/seinsdieum/Documents/GitHub/me",
     "list.type.of.created.stylesheet": "SCSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -77,11 +77,28 @@
       <workItem from="1672422013103" duration="229000" />
       <workItem from="1672630722600" duration="2080000" />
       <workItem from="1672688193660" duration="11000" />
-      <workItem from="1672688350609" duration="6996000" />
+      <workItem from="1672688350609" duration="7954000" />
+      <workItem from="1672707819987" duration="7227000" />
+      <workItem from="1672720440485" duration="10730000" />
+      <workItem from="1672747882657" duration="3932000" />
+      <workItem from="1672827660634" duration="2802000" />
+      <workItem from="1672869024005" duration="6392000" />
+      <workItem from="1672941657490" duration="345000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

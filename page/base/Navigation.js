@@ -5,6 +5,12 @@ function row() {
     return row
 }
 
+function column() {
+    let col = document.createElement('div')
+    col.className = 'column'
+    return col
+}
+
 function articlePoint()
 {
     let row = document.createElement('article')
@@ -59,7 +65,7 @@ function header(str) {
 
 const product = articlePoint()
 
-const productFirstRow = row()
+/*const productFirstRow = row()
 const productSecondRow = row()
 const productThirdRow = row()
 const productBanner = imageBanner()
@@ -73,7 +79,7 @@ productThirdRow.append(header('product'))
 switchImage(productBanner, productBannerImages, thisImg)
 product.appendChild(productFirstRow)
 product.appendChild(productSecondRow)
-product.appendChild(productThirdRow)
+product.appendChild(productThirdRow)*/
 product.addEventListener('waiting', () => {
     switchImage(productBanner, productBannerImages, thisImg)
 })

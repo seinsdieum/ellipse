@@ -6,6 +6,14 @@
   font-family: "Segoe UI";
   src: url("../../src/fonts/segoe/segoe-bold.ttf");
 }
+@font-face {
+  font-family: "Chisel Mark";
+  src: url("../../src/fonts/chiselMark/chisel-mark.ttf");
+}
+@font-face {
+  font-family: "Montserrat Blackk";
+  src: url("../../src/fonts/montserrat-font/moserrat-black.ttf");
+}
 @keyframes reflection-black {
   /*  0% {
       background: $web-black;
@@ -122,7 +130,7 @@ div.disclaimer ul {
 
 p {
   font-size: 3vh;
-  font-family: "Segoe UI";
+  font-family: "Radnika Medium";
   margin: 0 auto;
   text-align: center;
   max-width: 70vw;
@@ -246,12 +254,18 @@ ul.button-list li, ul.text-button-list li {
   margin-right: 0.5vw;
 }
 
+#vertical ul.text-button-list li {
+  float: left;
+  margin: 2vw;
+  display: block;
+}
+
 button.article {
   width: 10vw;
   height: 10vw;
   background: rgb(34, 34, 34);
   color: rgb(190, 190, 190);
-  font-family: "Segoe UI";
+  font-family: "Radnika Medium";
   font-size: 4vh;
   border-radius: 7px;
   border: none;
@@ -263,7 +277,7 @@ button.premiere {
   height: 30vw;
   background: rgb(34, 34, 34);
   color: rgb(190, 190, 190);
-  font-family: "Segoe UI";
+  font-family: "Radnika Medium";
   border-radius: 7px;
   font-size: 4vh;
   border: none;
@@ -294,7 +308,7 @@ img.item, svg.item {
 
 svg.logo, img.logo {
   max-width: 8vh;
-  padding: 1vh;
+  display: inline;
 }
 
 button.premiere:hover svg, button.article-navigation:hover svg, button.text-navigation:hover svg, button.hamburger:hover svg, button.premiere:hover img, button.article-navigation:hover img, button.text-navigation:hover img, button.hamburger:hover img {
@@ -350,6 +364,12 @@ button.hamburger {
   svg.mobile, img.mobile {
     display: block;
   }
+  button h1 {
+    font-size: 3vw;
+  }
+  p {
+    font-size: 3vw;
+  }
   button.hamburger {
     display: block;
     max-height: 100%;
@@ -361,16 +381,9 @@ button.hamburger {
     display: none;
   }
   button.article-navigation, button.text-navigation {
-    border: 1px solid rgb(190, 190, 190);
     height: 100%;
     width: inherit;
     padding: 2vw;
-  }
-  div.disclaimer button {
-    border: 1px solid transparent;
-  }
-  button.article-navigation:hover, button.text-navigation:hover {
-    border: 1px solid transparent;
   }
   @keyframes appear {
     from {
