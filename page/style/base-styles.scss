@@ -10,6 +10,16 @@
   src: url("../../src/fonts/segoe/segoe-bold.ttf");
 }
 
+@font-face {
+  font-family: "Chisel Mark";
+  src: url("../../src/fonts/chiselMark/chisel-mark.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat Blackk";
+  src: url("../../src/fonts/montserrat-font/moserrat-black.ttf");
+}
+
 //colors
 $web-black: rgb(34,34,34);
 $web-black-half: rgba(34,34,34, 0.8);
@@ -18,7 +28,7 @@ $web-blue: rgb(82, 82, 145);
 
 //fonts
 $font-main: "Radnika Medium";
-$font-def: "Segoe UI";
+$font-def: "Radnika Medium";
 
 //paddings
 $padding-def: 2vh;
@@ -406,6 +416,11 @@ button.hamburger {
     display: block;
   }
 
+  button h1 {
+    font-size: 3vw;
+  }
+
+
   p {
     font-size: 3vw;
   }
@@ -424,19 +439,12 @@ button.hamburger {
   }
 
   button.article-navigation, button.text-navigation {
-    border: 1px solid $web-white;
     height: 100%;
     width: inherit;
     padding: 2vw;
   }
 
-  div.disclaimer button {
-    border: 1px solid transparent;
-  }
 
-  button.article-navigation:hover, button.text-navigation:hover {
-    border: 1px solid transparent;
-  }
 
   @keyframes appear {
     from {
