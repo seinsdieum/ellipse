@@ -14,6 +14,8 @@
   font-family: "Montserrat Blackk";
   src: url("../../src/fonts/montserrat-font/moserrat-black.ttf");
 }
+/*$size-header: 4vh;
+$size-def: 3vh;*/
 @keyframes reflection-black {
   /*  0% {
       background: $web-black;
@@ -34,23 +36,32 @@
       background: $web-black;
     }*/
   0% {
-    background: rgb(34, 34, 34);
+    background: black;
   }
   25% {
     background: rgb(190, 190, 190);
   }
   50% {
-    background: rgb(34, 34, 34);
+    background: black;
   }
   75% {
     background: rgb(190, 190, 190);
   }
   100% {
-    background: rgb(34, 34, 34);
+    background: black;
   }
 }
 div.header-end {
   display: none;
+}
+
+.no-height-disturb {
+  max-width: 100%;
+  height: auto;
+}
+
+.horizontalize {
+  text-align: center;
 }
 
 body {
@@ -59,11 +70,12 @@ body {
   padding: 0;
   margin: 0;
   height: 100%;
-  background: rgb(82, 82, 145) url("../../src/img/longpic2.png") no-repeat;
+  background: rgb(167, 183, 208) url("../../src/img/longpic2.png") no-repeat;
   background-size: 100%;
   scroll-behavior: smooth;
   user-select: none;
   user-modify: none;
+  min-width: 320px;
 }
 
 div.page-container {
@@ -72,11 +84,10 @@ div.page-container {
 }
 
 h1 {
-  font-size: 4vh;
+  font-size: 1.7em;
   font-family: "Radnika Medium";
   font-style: normal;
   font-weight: lighter;
-  padding: 1vh;
 }
 
 .warning h1 {
@@ -115,8 +126,8 @@ div.disclaimer {
   z-index: 200;
   display: flex;
   flex-direction: column;
-  background: rgb(34, 34, 34);
-  border-radius: 1vh;
+  background: black;
+  border-radius: 1em;
 }
 
 div.disclaimer h1 {
@@ -129,7 +140,7 @@ div.disclaimer ul {
 }
 
 p {
-  font-size: 3vh;
+  font-size: 1.5em;
   font-family: "Radnika Medium";
   margin: 0 auto;
   text-align: center;
@@ -140,14 +151,18 @@ header {
   top: 0;
   flex: 1;
   display: flex;
-  padding: 2vh;
+  padding: 1em;
   padding-top: 0;
   padding-bottom: 0;
   flex-direction: row;
   justify-content: space-between;
   max-width: 100%;
-  background: rgb(34, 34, 34);
+  background: black;
   position: sticky;
+}
+
+button p, button h1 {
+  text-transform: uppercase;
 }
 
 header.warning {
@@ -169,7 +184,7 @@ div.update-row {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  border-radius: 1vh;
+  border-radius: 1em;
   transition: 1s all linear;
 }
 
@@ -178,8 +193,8 @@ div.white-line {
   height: 1px;
   background: rgb(190, 190, 190);
   margin: 0 auto;
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 div.navigation-container {
@@ -208,40 +223,96 @@ div.empty {
 
 button.navigation {
   border: 2px solid rgb(190, 190, 190);
-  background: rgb(34, 34, 34);
-  border-radius: 1vh;
-  padding: 2vh;
+  background: black;
+  border-radius: 1em;
+  padding: 1em;
   transition: 0.03s all ease-in;
 }
 
 @keyframes some-strobo {}
-button.article-navigation, button.text-navigation, button.hamburger {
+button.article-navigation, button.text-navigation, button.hamburger, button.underline-navigation {
   vertical-align: center;
   height: 100%;
   border: 2px solid rgb(190, 190, 190);
   background: transparent;
-  border-radius: 1vh;
-  padding: 2vh;
+  border-radius: 1em;
+  padding: 1em;
   height: 100%;
-  transition: 0.03s all ease-in;
+  transition: 0.06s all ease-in;
 }
 
-button.text-navigation, button.hamburger {
+.less-container {
+  max-height: 10%;
+}
+
+button.text-navigation, button.hamburger, button.underline-navigation {
   border: 2px solid transparent;
 }
 
 button.navigation:hover, button.article-navigation:hover, button.text-navigation:hover, button.hamburger:hover {
   border: 2px solid transparent;
   background: rgb(190, 190, 190);
-  transition: 0.03s all ease-out;
+  transition: 0.06s all ease-out;
   color: black;
+}
+
+button.underline-navigation::after, button.underline-navigation::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: rgb(167, 183, 208);
+  width: 100%;
+  text-align: center;
+  margin: 2px;
+  transform: scale(0);
+  transition: 0.1s all;
+}
+
+button.underline-navigation:hover::after, button.underline-navigation:hover::after {
+  transform: scale(1);
+  transition: 0.6s all;
+}
+
+/*button.underline-navigation:hover p, button.underline-navigation:hover h1 {
+  color: $web-blue;
+  transition: 0.1s all;
+}*/
+@keyframes fading {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes appearing {
+  0% {
+    filter: blur(10px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+.fade {
+  opacity: 0;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+}
+
+.appear {
+  opacity: 1;
+  transition: opacity 1s !important;
+  -webkit-transition: opacity 1s !important;
+  -moz-transition: opacity 1s !important;
 }
 
 ul.button-list, ul.button-column-list, ul.text-button-list {
   list-style: none;
   padding: 0;
   vertical-align: center;
-  padding: 1vh;
 }
 
 ul.button-column-list li {
@@ -263,11 +334,11 @@ ul.button-list li, ul.text-button-list li {
 button.article {
   width: 10vw;
   height: 10vw;
-  background: rgb(34, 34, 34);
+  background: black;
   color: rgb(190, 190, 190);
   font-family: "Radnika Medium";
-  font-size: 4vh;
-  border-radius: 7px;
+  font-size: 1.7em;
+  border-radius: 1em;
   border: none;
   transition: 0.09s all ease-out;
 }
@@ -275,25 +346,25 @@ button.article {
 button.premiere {
   width: 20vw;
   height: 30vw;
-  background: rgb(34, 34, 34);
+  background: black;
   color: rgb(190, 190, 190);
   font-family: "Radnika Medium";
-  border-radius: 7px;
-  font-size: 4vh;
+  border-radius: 1em;
+  font-size: 1.7em;
   border: none;
   transition: 0.09s all ease-out;
 }
 
 button.article:hover {
   background: rgb(190, 190, 190);
-  color: rgb(34, 34, 34);
+  color: black;
   transform: perspective(10cm) rotateY(25deg);
   transition: 1.2s all ease-out;
 }
 
 button.premiere:hover {
   background: rgb(160, 160, 160);
-  color: rgb(34, 34, 34);
+  color: black;
   transition: 0.09s all ease-out;
 }
 
@@ -321,17 +392,17 @@ svg.mobile, img.mobile {
   width: 100%;
   height: 100%;
   display: none;
-  stroke: rgb(34, 34, 34) !important;
+  stroke: black !important;
   fill: rgb(190, 190, 190);
   margin: 0;
 }
 
 article {
   max-width: 100%;
-  margin: 2vh;
-  padding: 2vh;
-  background: rgb(34, 34, 34);
-  border-radius: 1vh;
+  margin: 1em;
+  padding: 1em;
+  background: black;
+  border-radius: 1em;
 }
 
 article.half-transparent {
@@ -342,10 +413,21 @@ article.full-screen {
   margin: 0;
 }
 
+.promo-container {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  border-radius: 1em;
+  overflow: hidden;
+  width: 60%;
+  height: 60%;
+}
+
 img.promo {
   background-color: black;
-  border-radius: 1vh;
-  width: 30%;
+  border-radius: 1em;
+  max-width: 100%;
+  min-width: 100%;
   aspect-ratio: 16/9;
 }
 
@@ -360,15 +442,38 @@ button.hamburger {
   display: none;
 }
 
+.img-desc {
+  display: flex;
+  flex-direction: column;
+  flex: content;
+  position: absolute;
+  padding: 1em;
+  left: 20%;
+  right: 20%;
+  bottom: 0;
+  background-color: rgba(34, 34, 34, 0.8);
+  border: 1em;
+  visibility: hidden;
+}
+
 @media screen and (min-width: 240px) and (max-width: 760px) {
   svg.mobile, img.mobile {
     display: block;
   }
   button h1 {
-    font-size: 3vw;
+    font-size: 12px;
+  }
+  h1 {
+    font-size: 22px;
+  }
+  header > ul > li h1 {
+    font-size: 2em;
+  }
+  .full-screen h1 {
+    font-size: 14px;
   }
   p {
-    font-size: 3vw;
+    font-size: 20px;
   }
   button.hamburger {
     display: block;
@@ -384,6 +489,9 @@ button.hamburger {
     height: 100%;
     width: inherit;
     padding: 2vw;
+  }
+  header ul li {
+    max-width: 20%;
   }
   @keyframes appear {
     from {
@@ -409,6 +517,10 @@ button.hamburger {
   }
   ul.text-button-list li {
     margin: 0;
+  }
+  header ul.button-list {
+    justify-content: space-between;
+    margin: 0.1rem;
   }
   header {
     justify-content: space-between;
