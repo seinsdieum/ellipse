@@ -1,4 +1,13 @@
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+function headToFootDist() {
+
+}
+
 let elementShow = false;
+
 function row() {
     let row = document.createElement('div')
     row.className = 'row'
@@ -15,12 +24,13 @@ function articlePoint()
 {
     let row = document.createElement('article')
     row.className = 'full-screen'
+
     row.style.background = 'black'
     row.style.position = 'absolute'
     row.style.left = '0'
     row.style.right = '0'
-    row.style.borderRadius = '0 '
-    row.style.transform = 'translateY(1vh)'
+    row.style.top = 'auto'
+    row.style.borderRadius = '0'
     return row
 }
 
@@ -109,42 +119,28 @@ let changeableElement;
 const head = element
 const rect = head.getBoundingClientRect()
 
-const position = (rect.bottom-rect.top)/1.2
+/*const position = (rect.bottom-rect.top)/1.2*/
 
 mainHeader.append(emptiness)
 changeableElement = emptiness
 
 
 function scrollToArticle() {
-/*    if(elementShow) {
-        window.scrollTo({
-            top: position,
-            behavior: "auto"
-        })
-    }*/
 }
 
-/*function showProductMenu() {
-    changeableElement = element.firstChild
-    element.firstChild.replaceWith(product)
-    console.log(product)
+function hideElement(elem) {
 }
 
-function showNewMenu() {
-    changeableElement = element.firstChild
-    element.firstChild.replaceWith(newPoint)
-    console.log(newPoint)
-}
+function showElement(elem) {
+    for(let el of elem.childNodes) {
+        if(parseFloat(el.style.opacity) > 0) {
+            el.style.animation = 'none'
+        } else {
 
-function showCompanyMenu() {
-    changeableElement = element.firstChild
-    element.firstChild.replaceWith(company)
-    console.log(company)
+            el.style.animation = `0.9s appearing ease-out`
+        }
+    }
 }
-
-function disposeMenu() {
-    element.firstChild.replaceWith(emptiness)
-}*/
 
 function showProductMenu() {
     changeableElement.replaceWith(product)
@@ -171,37 +167,30 @@ for (let butt of document.querySelectorAll('button')) {
 }
 
 productButton[0].addEventListener("mouseenter", () => {
-    elementShow = true;
+
     showProductMenu()
     scrollToArticle()
     addLeaveListener(product)
+    showElement(product)
 })
 
 companyButton[0].addEventListener("mouseenter", () => {
-    elementShow = true;
+
     showCompanyMenu()
     scrollToArticle()
     addLeaveListener(company)
+    showElement(company)
+
 })
 
 function addLeaveListener(elem) {
 
     elem.addEventListener('mouseleave', () => {
+
         disposeMenu()
         scrollToArticle()
         elementShow = false;
     })
-}
-
-class Menu {
-    menu
-
-    constructor(menu) {
-
-    }
-    Show() {
-
-    }
 }
 
 
