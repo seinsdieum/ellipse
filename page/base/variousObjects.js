@@ -35,8 +35,6 @@ function imageDesc(desc,buttonText, link) {
 function show(elem) {
     elem.style.visibility = 'visible'
     elem.style.animation = appearAnim()
-    console.log('shown')
-    console.log(elem.parentElement)
 
 }
 function hideFunc(elem) {
@@ -46,7 +44,6 @@ function hideFunc(elem) {
 
 }
 function hide(elem) {
-    console.log('hidden')
 
 
     elem.style.animation = fadeAnim()

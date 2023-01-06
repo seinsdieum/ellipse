@@ -145,13 +145,11 @@ function showElement(elem) {
 function showProductMenu() {
     changeableElement.replaceWith(product)
     changeableElement = product
-    console.log(product)
 }
 
 function showCompanyMenu() {
     changeableElement.replaceWith(company)
     changeableElement = company
-    console.log(company)
 }
 
 function disposeMenu() {

@@ -23,6 +23,7 @@
 //colors
 $web-black: black ;
 $web-black-half: rgba(34,34,34, 0.8);
+$web-black2-half: rgba(0,0,0, 0.8);
 $web-white: rgb(190,190,190);
 $web-blue: rgb(167, 183, 208);
 
@@ -275,7 +276,6 @@ button.navigation {
 
 button.article-navigation, button.text-navigation, button.hamburger, button.underline-navigation {
   vertical-align: center  ;
-  height: 100%;
   border: $border-invert;
   background: transparent;
   border-radius: $border-radius-def;
@@ -472,6 +472,7 @@ article.full-screen {
 }
 
 .promo-container {
+  position: relative;
   display: flex;
   justify-content: center;
   background-color: $web-black;
@@ -481,12 +482,12 @@ article.full-screen {
   height: 60%;
 }
 
-img.promo {
+.promo {
   background-color: black;
-  border-radius: $border-radius-def;
   max-width: 100%;
   min-width: 100%;
   aspect-ratio: 16/9;
+  border-radius: 0;
 }
 
 .column {
@@ -506,13 +507,18 @@ button.hamburger {
   flex: content;
   position: absolute;
   padding: $padding-def;
-  left: 20%;
-  right: 20%;
+  left: 0;
+  right: 0;
   bottom: 0;
-  background-color: $web-black-half;
+  top: 0;
+  background: linear-gradient(45deg,$web-black2-half, $web-black-half);
   border: $border-radius-def;
+  overflow: hidden;
   visibility: hidden;
+}
 
+.img-desc p {
+  max-width: 70%;
 }
 
 @media screen and (min-width: 240px) and (max-width: 760px) {

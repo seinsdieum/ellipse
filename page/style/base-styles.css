@@ -232,7 +232,6 @@ button.navigation {
 @keyframes some-strobo {}
 button.article-navigation, button.text-navigation, button.hamburger, button.underline-navigation {
   vertical-align: center;
-  height: 100%;
   border: 2px solid rgb(190, 190, 190);
   background: transparent;
   border-radius: 1em;
@@ -414,6 +413,7 @@ article.full-screen {
 }
 
 .promo-container {
+  position: relative;
   display: flex;
   justify-content: center;
   background-color: black;
@@ -423,12 +423,12 @@ article.full-screen {
   height: 60%;
 }
 
-img.promo {
+.promo {
   background-color: black;
-  border-radius: 1em;
   max-width: 100%;
   min-width: 100%;
   aspect-ratio: 16/9;
+  border-radius: 0;
 }
 
 .column {
@@ -448,12 +448,18 @@ button.hamburger {
   flex: content;
   position: absolute;
   padding: 1em;
-  left: 20%;
-  right: 20%;
+  left: 0;
+  right: 0;
   bottom: 0;
-  background-color: rgba(34, 34, 34, 0.8);
+  top: 0;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(34, 34, 34, 0.8));
   border: 1em;
+  overflow: hidden;
   visibility: hidden;
+}
+
+.img-desc p {
+  max-width: 70%;
 }
 
 @media screen and (min-width: 240px) and (max-width: 760px) {

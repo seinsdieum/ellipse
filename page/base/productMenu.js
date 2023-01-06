@@ -50,7 +50,6 @@ function buttonContainer(buttonL) {
     }
 }
 
-let defBanner = imageBanner('desktopPromo2.jpg', 'Choose your huinia or know', 'more about vape series', 'dodo')
 function switchHiding() {
     hiding = !hiding
 }
@@ -60,7 +59,7 @@ let currentButton = undefined
 function selectButton(button) {
     const text = button.childNodes[0]
     text.style.color = '#A7B7D0FF'
-    console.log(text.style.color)
+
     currentButton = button
 }
 
@@ -74,20 +73,29 @@ function deselectButton() {
 }
 
 function addProductMenuItems() {
-    const item1Button = underlineButton('TMT-46', true)
-    const item2Button = underlineButton('Verigon', false)
-    const item3Button = underlineButton('TMT-45', false)
-    const item4Button = underlineButton('Kali', false)
+    const item1Button = underlineButton('TMT', true)
 
-    const bntLst = {item1Button, item2Button, item3Button, item4Button}
+    const item2Button = underlineButton('Verigon', false)
+    const item3Button = underlineButton('all', false)
+    const item4Button = underlineButton('surfingem', false)
+    const item5Button = underlineButton('Kali', false)
+
+    const bntLst = {item1Button, item2Button, item3Button, item4Button, item5Button}
     const menuList = buttonList(false, bntLst)
 
     const row1 = row()
     const row2 = row()
 
-    const defaultBanner = imageBanner('desktopPromo2.jpg', 'Stop the gravity in one click', 'see all products', 'dodo')
-    const item1Banner = imageBanner('desktopPromo3.jpg', 'TMT-46 - Release soon', 'learn more', 'dodo')
-    const item2Banner = imageBanner('desktopPromo1.jpg', 'One-step future with Verigon  ', 'learn more', 'dodo')
+    const defaultBanner = imageBanner('desktopPromo2.jpg','Vape Ellipse is a brand new way feeling yourself like in' +
+        ' the outer space. ' + 'Stop the\n gravity in one click. ' +
+        '\nDefine your favourite between the hottest devices.' +
+    '\n We will help you in searching for a real vapour surfing power machine.', 'learn more about all products', 'dodo')
+
+    const item1Banner = imageBanner('desktopPromo3.jpg', 'Hurry. Dream. Fly away. TMT, the first' +
+        ' euphoritine-based platform in the world, takes our mind up to these days. The most comfortable and geeky way' +
+        ' to chill. Adjustable sizes, diamond mechanics and the beauty have made it`s own. All that you left to do is ' +
+        'to research new fields of humanity happiness   ', 'learn more', 'dodo')
+    const item2Banner = imageBanner('desktopPromo1.jpg', 'One-step future with Verigon', 'learn more', 'dodo')
 
     row2.append(defaultBanner)
 
@@ -97,6 +105,7 @@ function addProductMenuItems() {
         product.appendChild(row1)
         product.appendChild(rowLine())
         product.appendChild(row2)
+        selectButton(item3Button)
     }
     function switchBanner(ban) {
         let currentBanner = product.querySelector('div.promo-container');
@@ -119,11 +128,10 @@ function addProductMenuItems() {
     })
     item3Button.addEventListener('mouseenter', () => {
         deselectButton()
-        switchBanner(item2Banner)
-        selectButton(item2Button)
+        switchBanner(defaultBanner)
+        selectButton(item3Button)
     })
 }
 
-console.log(product)
 
 productButton[0].addEventListener('mouseover', addProductMenuItems)
