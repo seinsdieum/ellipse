@@ -24,7 +24,7 @@ function imageDesc(desc,buttonText, link) {
     const linkedButton = button(buttonText, false)
     linkedButton.className = 'underline-navigation'
 
-    description.appendChild(text(desc))
+    description.append(desc)
     description.appendChild(linkedButton)
     linkedButton.addEventListener('mouseclick', () => {
         window.location.href = link
@@ -44,15 +44,12 @@ function hideFunc(elem) {
 
 }
 function hide(elem) {
-
-
     elem.style.animation = fadeAnim()
     elem.addEventListener('animationend', () => {
         if(hiding) {
             hideFunc(elem)
         }
     })
-
 }
 
 function imageBanner(src, desc, buttonText, link) {
@@ -63,19 +60,34 @@ function imageBanner(src, desc, buttonText, link) {
     banner.src = `../../src/img/banner/${src}`
 
     const description = imageDesc(desc,buttonText,  link)
-    bannerContainer.appendChild(banner)
-    bannerContainer.appendChild(description)
 
-    bannerContainer.addEventListener('mouseenter', () => {
-        hiding = false;
-        show(description)
+    const loading = document.createElement('h1')
+    loading.append('Loading, please wait')
+
+    banner.addEventListener('waiting', () => {
+        console.log('loading')
+        bannerContainer.appendChild(loading)
+    })
+
+    banner.addEventListener('load', () => {
+        loading.remove()
+        console.log('loaded')
+        bannerContainer.appendChild(banner)
+        bannerContainer.appendChild(description)
+
+        bannerContainer.addEventListener('mouseenter', () => {
+            hiding = false;
+            show(description)
+        })
+
+
+        bannerContainer.addEventListener('mouseleave', () => {
+            hiding = true;
+            hide(description)
+        })
     })
 
 
-    bannerContainer.addEventListener('mouseleave', () => {
-        hiding = true;
-        hide(description)
-    })
 
     return bannerContainer
 }

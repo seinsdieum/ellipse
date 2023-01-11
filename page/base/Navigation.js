@@ -31,6 +31,7 @@ function articlePoint()
     row.style.right = '0'
     row.style.top = 'auto'
     row.style.borderRadius = '0'
+    row.style.aspectRatio = '16/9'
     return row
 }
 
@@ -52,12 +53,12 @@ function rightHeaderPos() {
     return distance
 }
 
-function text(str) {
-    let textCase = document.createElement('p')
-    textCase.append(str)
-    return textCase
+/*function text(str) {
+    return str
 }
-
+function header(str) {
+    return str
+}*/
 function switchImage(imageElement, list, number) {
     number++
     if (number == list.length) {
@@ -67,11 +68,7 @@ function switchImage(imageElement, list, number) {
 
 }
 
-function header(str) {
-    let textCase = document.createElement('h1')
-    textCase.append(str)
-    return textCase
-}
+
 
 const product = articlePoint()
 
@@ -90,13 +87,11 @@ switchImage(productBanner, productBannerImages, thisImg)
 product.appendChild(productFirstRow)
 product.appendChild(productSecondRow)
 product.appendChild(productThirdRow)*/
-product.addEventListener('waiting', () => {
-    switchImage(productBanner, productBannerImages, thisImg)
-})
+const sign = articlePoint()
 
 const newPoint = articlePoint()
 newPoint.style.backgroundColor = 'black'
-newPoint.appendChild(header('krasava'))
+newPoint.append('krasava')
 
 const company = articlePoint()
 company.style.backgroundColor = 'black'
@@ -105,6 +100,7 @@ const emptiness = articlePoint()
 emptiness.style.display = 'none'
 
 const productButton = document.getElementsByName('product-button')
+const signButton = document.getElementsByName('sign-button')
 const newButton = document.getElementsByName('new-button')
 const companyButton = document.getElementsByName('company-button')
 
@@ -147,6 +143,11 @@ function showProductMenu() {
     changeableElement = product
 }
 
+function showSignMenu() {
+    changeableElement.replaceWith(sign)
+    changeableElement = sign
+}
+
 function showCompanyMenu() {
     changeableElement.replaceWith(company)
     changeableElement = company
@@ -179,6 +180,12 @@ companyButton[0].addEventListener("mouseenter", () => {
     addLeaveListener(company)
     showElement(company)
 
+})
+
+signButton[0].addEventListener('mouseenter', () => {
+    showSignMenu()
+    addLeaveListener(sign)
+    showElement(sign)
 })
 
 function addLeaveListener(elem) {

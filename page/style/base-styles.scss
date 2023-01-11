@@ -122,8 +122,8 @@ div.page-container {
 h1 {
   font-size: $size-header;
   font-family: $font-main;
-  font-style: normal;
-  font-weight: lighter;
+
+  font-weight: bold;
 }
 
 .warning h1 {
@@ -184,6 +184,36 @@ p {
   max-width: 70vw;
 }
 
+.sign-form {
+  display: flex;
+  flex-direction: column;
+  min-height: 60%;
+  max-height: 60%;
+  padding: 1em;
+}
+
+.sign-form input {
+  background: $web-white;
+  color: black;
+  border-radius: $border-radius-small;
+  width: 100%;
+  height: 70%;
+  margin: 0.8em;
+  padding: 0.8em;
+  font-size: $size-header;
+  font-family: $font-main;
+  border: $border-transparent;
+  text-align: center;
+  align-self: center;
+}
+
+.sign-form input:focus {
+  outline: $border-invert;
+  background: black;
+  color: $web-white;
+  transition: 0.06s all linear;
+}
+
 header {
   top: 0;
   flex:1;
@@ -198,7 +228,7 @@ header {
   position: sticky;
 }
 
-button p, button h1 {
+button {
   text-transform: uppercase;
 }
 
@@ -307,7 +337,7 @@ button.underline-navigation::after, button.underline-navigation::after {
   background-color: $web-blue;
   width: 100%;
   text-align: center;
-  margin: 2px;
+  margin-top: 20px;
 
   transform: scale(0);
   transition: 0.1s all;
@@ -318,10 +348,10 @@ button.underline-navigation:hover::after, button.underline-navigation:hover::aft
   transition: 0.6s all;
 }
 
-/*button.underline-navigation:hover p, button.underline-navigation:hover h1 {
+button.underline-navigation:hover {
   color: $web-blue;
   transition: 0.1s all;
-}*/
+}
 
 @keyframes fading {
   0% {
@@ -372,8 +402,8 @@ ul.button-column-list li {
 
 ul.button-list li, ul.text-button-list li {
   float: left;
-  margin-left: 0.5vw;
-  margin-right: 0.5vw;
+  margin-left: 0.2vw;
+  margin-right: 0.2vw;
 }
 
 #vertical ul.text-button-list li {
@@ -381,6 +411,14 @@ ul.button-list li, ul.text-button-list li {
   margin: 2vw;
   display: block;
 
+}
+
+button {
+  font-size: 18px;
+  font-family: $font-def;
+  font-weight: 600;
+  color: $web-white;
+  text-transform: uppercase;
 }
 
 button.article {
@@ -395,18 +433,43 @@ button.article {
   transition: 0.09s all ease-out;
 }
 
-button.premiere {
+@keyframes fromSideToSide {
+  0% {
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  50% {
+    filter: blur(2px 45deg);
+  }
+  100% {
+    transform: translateY(1vh);
+    filter: blur(0px);
+
+  }
+}
+
+button.premiere, button.premiere-moving {
 
   width: 20vw;
-  height: 30vw;
+  height: 30vh;
   background: $web-black;
   color: $web-white;
   font-family: $font-def;
   border-radius: $border-radius-small;
   font-size: $size-header;
-  border: none;
+  border: $border-transparent;
   transition: 0.09s all ease-out;
 
+}
+
+button.premiere-moving {
+
+}
+
+button.premiere-moving:hover {
+  border: $border-invert;
+  transition: 2s border ease-out;
+  animation: 0.9s fromSideToSide alternate ease-in-out infinite;
 }
 
 button.article:hover {
@@ -469,6 +532,8 @@ article.half-transparent {
 
 article.full-screen {
   margin: 0;
+  transition: 0.3s all linear;
+  border-radius: 0;
 }
 
 .promo-container {
@@ -479,8 +544,9 @@ article.full-screen {
   border-radius: $border-radius-def;
   overflow: hidden;
   width: 60%;
-  height: 60%;
+  min-height: 60%;
 }
+
 
 .promo {
   background-color: black;
@@ -501,6 +567,10 @@ button.hamburger {
   display: none
 }
 
+lol {
+
+}
+
 .img-desc {
   display: flex;
   flex-direction: column;
@@ -515,19 +585,59 @@ button.hamburger {
   border: $border-radius-def;
   overflow: hidden;
   visibility: hidden;
+  text-align: center;
+  word-break: break-word;
+  font-size: 18px;
+  font-family: $font-def;
 }
 
 .img-desc p {
   max-width: 70%;
 }
 
+.img-desc button {
+  transition: 0.0s all linear;
+}
+
+a {
+  color: $web-blue;
+  text-decoration: none;
+}
+
+a:active {
+  color: $web-white;
+}
+
+a:visited {
+  color: $web-blue;
+}
+
 @media screen and (min-width: 240px) and (max-width: 760px) {
+  header ul li:first-child {
+    display: none;
+  }
+
+  header ul li:nth-child(2) {
+    display: none;
+  }
+
+  header ul li:nth-child(3) {
+    display: none;
+  }
+  header ul li:nth-child(4) {
+    display: none;
+  }
+
   svg.mobile, img.mobile {
     display: block;
   }
 
-  button h1 {
+  button {
     font-size: 12px;
+  }
+
+  button.article-navigation {
+    font-size: 0;
   }
 
   h1 {
@@ -544,6 +654,10 @@ button.hamburger {
 
   p {
     font-size: 20px;
+  }
+
+  .warning p {
+    font-size: 10px;
   }
 
   button.hamburger {
@@ -611,7 +725,6 @@ button.hamburger {
   }
 
   header {
-    justify-content: space-between;
   }
 
   ul.button-list, ul.text-button-list {

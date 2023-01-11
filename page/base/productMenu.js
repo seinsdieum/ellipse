@@ -13,7 +13,7 @@ function button(str, borders) {
         butt.style.maxWidth = '15vw'
         butt.style.margin = '1vw'
     }*/
-    butt.append(header(str))
+    butt.append(str)
     return butt
 
 }
@@ -22,6 +22,7 @@ function underlineButton(str) {
     const butt = button(str, false)
     butt.className = 'underline-navigation'
     butt.style.margin = '0'
+
     return butt
 }
 
@@ -54,21 +55,17 @@ function switchHiding() {
     hiding = !hiding
 }
 
+let currentDesc = undefined
 let currentButton = undefined
 
 function selectButton(button) {
-    const text = button.childNodes[0]
-    text.style.color = '#A7B7D0FF'
-
+    button.style.color = '#A7B7D0FF'
     currentButton = button
 }
 
 function deselectButton() {
     if(currentButton) {
-
-        const text = currentButton.childNodes[0]
-
-        text.style.color = '#BEBEBEFF'
+        currentButton.style.color = '#BEBEBEFF'
     }
 }
 
@@ -95,7 +92,16 @@ function addProductMenuItems() {
         ' euphoritine-based platform in the world, takes our mind up to these days. The most comfortable and geeky way' +
         ' to chill. Adjustable sizes, diamond mechanics and the beauty have made it`s own. All that you left to do is ' +
         'to research new fields of humanity happiness   ', 'learn more', 'dodo')
-    const item2Banner = imageBanner('desktopPromo1.jpg', 'One-step future with Verigon', 'learn more', 'dodo')
+    const item2Banner = imageBanner('desktopPromo1.jpg','Verigon is the spirit of mind, power and leading.' +
+        ''+ 'Aim of a Verigon machine is to show you how extreme looks' +
+        '. Verigon is more than stimulator vapour machine. it makes you really powered up. In Verigon - we trust.' +
+        '', 'learn more', 'dodo')
+
+    const item3Banner = imageBanner('desktopPromo4.jpg','SurfinGem is made for people who know what real chill is. The ' +
+        'minimalistic "surf" design and vape richness turn your vaping to real surfing. Surf your mind!', 'learn more', 'dodo')
+    const item4Banner = imageBanner('desktopPromo3.jpg', 'Turn vape mode to "easy". ' +
+        'THe smart Kali technology lets you to vape effectively and minimize its consuming with still getting ' +
+        'extraordinary vaping experience.', 'learn more', 'dodo')
 
     row2.append(defaultBanner)
 
@@ -111,7 +117,6 @@ function addProductMenuItems() {
         let currentBanner = product.querySelector('div.promo-container');
         if (!(currentBanner === ban)) {
             switchHiding()
-
             currentBanner.replaceWith(ban)
             show(ban)
         }
@@ -131,7 +136,17 @@ function addProductMenuItems() {
         switchBanner(defaultBanner)
         selectButton(item3Button)
     })
-}
+    item4Button.addEventListener('mouseenter', () => {
+        deselectButton()
+        switchBanner(item3Banner)
+        selectButton(item4Button)
+    })
 
+    item5Button.addEventListener('mouseenter', () => {
+        deselectButton()
+        switchBanner(item4Banner)
+        selectButton(item5Button)
+    })
+}
 
 productButton[0].addEventListener('mouseover', addProductMenuItems)

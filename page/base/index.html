@@ -8,7 +8,7 @@
     <title>ellipse main</title>
 </head>
 <body>
-<video autoplay muted loop id="back-video" poster="../../src/img/backframes/vapor_ellipse.png">
+<video autoplay muted loop id="back-video" poster="">
     <source src="../../src/video/storm_ellipse.mp4" type="video/mp4">
 </video>
     <div class="color-layer"> </div>
@@ -54,30 +54,35 @@
         <div class="empty"> </div>
 
         <header>
-            <ul class="button-list">
-                <li>
+
                     <h1>
                         ellipse
                     </h1>
-                </li>
-            </ul>
 
             <ul class="button-list">
                 <li>
                     <button class="text-navigation" name="product-button" >
-                        <a>
-                            <p>Product</p>
+                            Product
                             <svg class="mobile" width="371" height="480" viewBox="0 0 371 480" fill="$web-white" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M371 69C371 56.1902 361.413 43.6333 343.314 32.7355C325.214 21.8376 299.316 13.0289 268.52 7.29599C237.723 1.56303 203.244 -0.867915 168.944 0.275366C134.644 1.41865 101.876 6.09102 74.3103 13.7693C46.7446 21.4475 25.4694 31.8285 12.867 43.7497C0.264619 55.6709 -3.1674 68.6618 2.95527 81.2674C9.07795 93.8731 24.5136 105.596 47.5337 115.123C70.5538 124.651 100.25 131.606 133.295 135.211L185.5 69H371Z" fill="$web-white"/>
                                 <path d="M0 411C-3.01065e-06 423.81 9.58655 436.367 27.6862 447.265C45.7858 458.162 71.6838 466.971 102.48 472.704C133.277 478.437 167.756 480.868 202.056 479.725C236.356 478.581 269.124 473.909 296.69 466.231C324.255 458.552 345.531 448.172 358.133 436.25C370.735 424.329 374.167 411.338 368.045 398.733C361.922 386.127 346.486 374.404 323.466 364.877C300.446 355.349 270.751 348.394 237.705 344.789L185.5 411L0 411Z" fill="$web-white"/>
                                 <path d="M184.809 347C180.664 347 176.542 344.726 173.326 341.398L109.885 264.85C105.741 259.247 103 251.315 103 242.329C103 233.343 105.31 224.301 109.885 218.699L173.779 138.767C177.448 134.274 181.593 132 186.191 132C190.336 132 194.458 134.274 197.674 137.602L261.115 214.15C265.259 219.753 268 227.685 268 236.671C268 245.657 265.712 254.699 261.115 260.301L197.221 340.233C193.529 344.726 189.407 347 184.809 347ZM114.483 241.164L177.924 317.712C179.758 319.986 182.069 321.096 184.809 321.096C187.572 321.096 190.336 319.986 192.17 317.712L256.517 237.781L193.076 161.232C191.242 158.958 188.931 157.849 186.191 157.849C183.428 157.849 180.664 158.958 178.83 161.232L114.483 241.164Z" fill="$web-white"/>
                             </svg>
-                        </a>
+                    </button>
+                </li>
+                <li>
+                    <button name="sign-button" class="text-navigation" >
+                        Sign
+                        <svg class="mobile" width="371" height="480" viewBox="0 0 371 480" fill="$web-white" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M371 69C371 56.1902 361.413 43.6333 343.314 32.7355C325.214 21.8376 299.316 13.0289 268.52 7.29599C237.723 1.56303 203.244 -0.867915 168.944 0.275366C134.644 1.41865 101.876 6.09102 74.3103 13.7693C46.7446 21.4475 25.4694 31.8285 12.867 43.7497C0.264619 55.6709 -3.1674 68.6618 2.95527 81.2674C9.07795 93.8731 24.5136 105.596 47.5337 115.123C70.5538 124.651 100.25 131.606 133.295 135.211L185.5 69H371Z" fill="$web-white"/>
+                            <path d="M0 411C-3.01065e-06 423.81 9.58655 436.367 27.6862 447.265C45.7858 458.162 71.6838 466.971 102.48 472.704C133.277 478.437 167.756 480.868 202.056 479.725C236.356 478.581 269.124 473.909 296.69 466.231C324.255 458.552 345.531 448.172 358.133 436.25C370.735 424.329 374.167 411.338 368.045 398.733C361.922 386.127 346.486 374.404 323.466 364.877C300.446 355.349 270.751 348.394 237.705 344.789L185.5 411L0 411Z" fill="$web-white"/>
+                            <path d="M184.809 347C180.664 347 176.542 344.726 173.326 341.398L109.885 264.85C105.741 259.247 103 251.315 103 242.329C103 233.343 105.31 224.301 109.885 218.699L173.779 138.767C177.448 134.274 181.593 132 186.191 132C190.336 132 194.458 134.274 197.674 137.602L261.115 214.15C265.259 219.753 268 227.685 268 236.671C268 245.657 265.712 254.699 261.115 260.301L197.221 340.233C193.529 344.726 189.407 347 184.809 347ZM114.483 241.164L177.924 317.712C179.758 319.986 182.069 321.096 184.809 321.096C187.572 321.096 190.336 319.986 192.17 317.712L256.517 237.781L193.076 161.232C191.242 158.958 188.931 157.849 186.191 157.849C183.428 157.849 180.664 158.958 178.83 161.232L114.483 241.164Z" fill="$web-white"/>
+                        </svg>
                     </button>
                 </li>
                 <li>
                     <button name="new-button" class="text-navigation" >
-                        <p>TMT</p>
+                        TMT
                         <svg class="mobile" width="371" height="480" viewBox="0 0 371 480" fill="$web-white" xmlns="http://www.w3.org/2000/svg">
                             <path d="M371 69C371 56.1902 361.413 43.6333 343.314 32.7355C325.214 21.8376 299.316 13.0289 268.52 7.29599C237.723 1.56303 203.244 -0.867915 168.944 0.275366C134.644 1.41865 101.876 6.09102 74.3103 13.7693C46.7446 21.4475 25.4694 31.8285 12.867 43.7497C0.264619 55.6709 -3.1674 68.6618 2.95527 81.2674C9.07795 93.8731 24.5136 105.596 47.5337 115.123C70.5538 124.651 100.25 131.606 133.295 135.211L185.5 69H371Z" fill="$web-white"/>
                             <path d="M321 240C321 232.113 315.962 224.337 306.297 217.309C296.632 210.28 282.615 204.198 265.391 199.56C248.166 194.921 228.223 191.858 207.191 190.62C186.159 189.382 164.635 190.004 144.376 192.436L186 240H321Z" fill="$web-white"/>
@@ -92,18 +97,8 @@
                     </button>
                 </li>
                 <li>
-                    <button name="sign-button" class="text-navigation" >
-                        <p>Sign</p>
-                        <svg class="mobile" width="371" height="480" viewBox="0 0 371 480" fill="$web-white" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M371 69C371 56.1902 361.413 43.6333 343.314 32.7355C325.214 21.8376 299.316 13.0289 268.52 7.29599C237.723 1.56303 203.244 -0.867915 168.944 0.275366C134.644 1.41865 101.876 6.09102 74.3103 13.7693C46.7446 21.4475 25.4694 31.8285 12.867 43.7497C0.264619 55.6709 -3.1674 68.6618 2.95527 81.2674C9.07795 93.8731 24.5136 105.596 47.5337 115.123C70.5538 124.651 100.25 131.606 133.295 135.211L185.5 69H371Z" fill="$web-white"/>
-                            <path d="M0 411C-3.01065e-06 423.81 9.58655 436.367 27.6862 447.265C45.7858 458.162 71.6838 466.971 102.48 472.704C133.277 478.437 167.756 480.868 202.056 479.725C236.356 478.581 269.124 473.909 296.69 466.231C324.255 458.552 345.531 448.172 358.133 436.25C370.735 424.329 374.167 411.338 368.045 398.733C361.922 386.127 346.486 374.404 323.466 364.877C300.446 355.349 270.751 348.394 237.705 344.789L185.5 411L0 411Z" fill="$web-white"/>
-                            <path d="M184.809 347C180.664 347 176.542 344.726 173.326 341.398L109.885 264.85C105.741 259.247 103 251.315 103 242.329C103 233.343 105.31 224.301 109.885 218.699L173.779 138.767C177.448 134.274 181.593 132 186.191 132C190.336 132 194.458 134.274 197.674 137.602L261.115 214.15C265.259 219.753 268 227.685 268 236.671C268 245.657 265.712 254.699 261.115 260.301L197.221 340.233C193.529 344.726 189.407 347 184.809 347ZM114.483 241.164L177.924 317.712C179.758 319.986 182.069 321.096 184.809 321.096C187.572 321.096 190.336 319.986 192.17 317.712L256.517 237.781L193.076 161.232C191.242 158.958 188.931 157.849 186.191 157.849C183.428 157.849 180.664 158.958 178.83 161.232L114.483 241.164Z" fill="$web-white"/>
-                        </svg>
-                    </button>
-                </li>
-                <li>
-                    <button name="support-button" class="text-navigation">
-                        <p>Support</p>
+                <button name="support-button" class="text-navigation">
+                        Support
                         <svg class="mobile" width="371" height="480" viewBox="0 0 371 480" fill="$web-white" xmlns="http://www.w3.org/2000/svg">
                             <path d="M371 69C371 56.1902 361.413 43.6333 343.314 32.7355C325.214 21.8376 299.316 13.0289 268.52 7.29599C237.723 1.56303 203.244 -0.867915 168.944 0.275366C134.644 1.41865 101.876 6.09102 74.3103 13.7693C46.7446 21.4475 25.4694 31.8285 12.867 43.7497C0.264619 55.6709 -3.1674 68.6618 2.95527 81.2674C9.07795 93.8731 24.5136 105.596 47.5337 115.123C70.5538 124.651 100.25 131.606 133.295 135.211L185.5 69H371Z" fill="$web-white"/>
                             <path d="M0 411C-3.01065e-06 423.81 9.58655 436.367 27.6862 447.265C45.7858 458.162 71.6838 466.971 102.48 472.704C133.277 478.437 167.756 480.868 202.056 479.725C236.356 478.581 269.124 473.909 296.69 466.231C324.255 458.552 345.531 448.172 358.133 436.25C370.735 424.329 374.167 411.338 368.045 398.733C361.922 386.127 346.486 374.404 323.466 364.877C300.446 355.349 270.751 348.394 237.705 344.789L185.5 411L0 411Z" fill="$web-white"/>
@@ -113,7 +108,7 @@
                 </li>
                 <li>
                     <button name="company-button" class="text-navigation">
-                        <p>Ellipse</p>
+                        Ellipse
                         <svg class="mobile" width="371" height="480" viewBox="0 0 371 480" fill="$web-white" xmlns="http://www.w3.org/2000/svg">
                             <path d="M371 171C371 158.19 361.413 145.633 343.314 134.735C325.214 123.838 299.316 115.029 268.52 109.296C237.723 103.563 203.244 101.132 168.944 102.275C134.644 103.419 101.876 108.091 74.3103 115.769C46.7446 123.448 25.4694 133.828 12.867 145.75C0.264619 157.671 -3.1674 170.662 2.95527 183.267C9.07795 195.873 24.5136 207.596 47.5337 217.123C70.5538 226.651 100.25 233.606 133.295 237.211L185.5 171H371Z" fill="$web-white"/>
                             <path d="M0 309C-3.01065e-06 321.81 9.58655 334.367 27.6862 345.265C45.7858 356.162 71.6838 364.971 102.48 370.704C133.277 376.437 167.756 378.868 202.056 377.725C236.356 376.581 269.124 371.909 296.69 364.231C324.255 356.552 345.531 346.172 358.133 334.25C370.735 322.329 374.167 309.338 368.045 296.733C361.922 284.127 346.486 272.404 323.466 262.877C300.446 253.349 270.751 246.394 237.705 242.789L185.5 309L0 309Z" fill="$web-white"/>
@@ -124,36 +119,46 @@
             </ul>
             <div class="header-end"></div>
         </header>
-        <article class="half-transparent">
+        <article class="full-screen">
 
             <div class="row">
-                <h1>START YOUR ELLIPSE JOURNEY</h1>
+                <h1>Start your Ellipse floating</h1>
 
             </div>
 
             <div class="row">
-                <p>ellipse, as the premium emirates brand, has been focusing on technology innovation and
-                    investment, which is only to give you more vape life possibilities and enjoy the beauty of vape.</p>
+                <p>
+                    Ellipse, as the premium certified Emirates brand, has been focusing on technology innovation and
+                    investment, which is only to give you more vape life possibilities and enjoy the beauty of vape.
+                    The instant vape surfing effect is our main target to present you innovative vape experience, giving
+                    you the unique possibilities and feelings.
+                </p>
+            </div>
+
+            <div class="row">
+                <h1>
+                    Electronic revolution starts this time for you
+                </h1>
+            </div>
+
+            <div class="row">
+                <p>
+                    Visit our <a href="#">Vape Ellipse show</a> and get first good 20% sale.
+                </p>
             </div>
 
             <div class="white-line"></div>
             
             <div class="row">
-                <h1>Choose your card</h1>
+                <h1>Company and partners page</h1>
             </div>
             <div class="row">
                 <ul class="button-list">
                     <li>
-                        <button class="premiere" onclick="window.location.href = 'https://www.youtube.com/watch?v=L7H4hXHt-z4';">
-                            <img class="item" src="../../src/svg/Question_Mark.svg"></img>
+                        <button class="premiere-moving" onclick="window.location.href = 'https://www.youtube.com/watch?v=L7H4hXHt-z4';">
+                            <img class="item" src="../../src/svg/ellipse.svg"></img>
                         </button>
                     </li>
-                    <li>
-                        <button class="premiere" onclick="window.location.href = 'https://www.youtube.com/watch?v=L7H4hXHt-z4';">
-                            <img class="item" src="../../src/svg/Question_Mark.svg"></img>
-                        </button>
-                    </li>
-
                 </ul>
             </div>
 
@@ -161,52 +166,55 @@
         <header>
 
             <div class="column">
-                <p>
-                    ellipse tech
-                </p>
+
                 <ul class="button-column-list">
                     <li>
-                        <button name="event-button" class="article-navigation">
-                            <p>summer gifts</p>
+                        <h1>
+                            ellipse tech
+                        </h1>
+                    </li>
+                    <li>
+                        <button name="event-button" class="underline-navigation">
+                            summer gifts
                         </button>
                     </li>
                     <li>
-                        <button name="event-button" class="article-navigation">
-                            <p>summer gifts</p>
+                        <button name="event-button" class="underline-navigation">
+                            summer gifts
                         </button>
                     </li>
                     <li>
-                        <button name="event-button" class="article-navigation">
-                            <p>summer gifts</p>
+                        <button name="event-button" class="underline-navigation">
+                            summer gifts
                         </button>
                     </li>
                     <li>
-                        <button name="event-button" class="article-navigation">
-                            <p>summer gifts</p>
+                        <button name="event-button" class="underline-navigation">
+                            summer gifts
                         </button>
                     </li>
 
                 </ul>
             </div>
             <div class="column">
-                <p>
+                <h1>
                     ellipse tech
-                </p>
+                </h1>
             </div>
             <div class="column">
-                <p>
+                <h1>
                     ellipse tech
-                </p>
+                </h1>
             </div>
         </header>
     </div>
-    <script src="index.js">
-
-    </script>
+    <script src="index.js"></script>
     <script src="Navigation.js"></script>
     <script src="devicemotion.js"></script>
-<script src="variousObjects.js"></script>
-<script src="productMenu.js">
-</script>
+    <script src="variousObjects.js"></script>
+
+    <script src="productMenu.js"></script>
+
+    <script src="signMenu.js"></script>
 </body>
 </html>
