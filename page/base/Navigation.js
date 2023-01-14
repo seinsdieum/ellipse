@@ -32,6 +32,7 @@ function articlePoint()
     row.style.top = 'auto'
     row.style.borderRadius = '0'
     row.style.aspectRatio = '16/9'
+    row.style.zIndex = '100'
     return row
 }
 

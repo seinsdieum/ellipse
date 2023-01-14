@@ -1,73 +1,4 @@
 
-function button(str, borders) {
-    const butt = document.createElement('button')
-    if(borders) {
-        butt.className = 'article-navigation'
-    } else {
-        butt.className = 'text-navigation'
-    }
-    /*if(window.innerWidth > 768) {
-        butt.style.maxHeight = '10vh'
-    } else {
-        butt.style.maxHeight = '5vh'
-        butt.style.maxWidth = '15vw'
-        butt.style.margin = '1vw'
-    }*/
-    butt.append(str)
-    return butt
-
-}
-
-function underlineButton(str) {
-    const butt = button(str, false)
-    butt.className = 'underline-navigation'
-    butt.style.margin = '0'
-
-    return butt
-}
-
-function rowLine() {
-    const l = document.createElement('div')
-    l.className = 'white-line'
-    return l
-}
-
-function buttonList(horizontal, _buttonList) {
-    const buttonLst = document.createElement('ul')
-    buttonLst.className = 'text-button-list'
-    for(let bu of Object.values(_buttonList)) {
-        let li = document.createElement('li')
-        li.appendChild(bu)
-        buttonLst.appendChild(li)
-    }
-    return buttonLst
-}
-
-function buttonContainer(buttonL) {
-    const container = document.createElement('div')
-    container.className = 'less-container'
-    for(let bu of buttonL.values) {
-        container.appendChild(bu)
-    }
-}
-
-function switchHiding() {
-    hiding = !hiding
-}
-
-let currentDesc = undefined
-let currentButton = undefined
-
-function selectButton(button) {
-    button.style.color = '#A7B7D0FF'
-    currentButton = button
-}
-
-function deselectButton() {
-    if(currentButton) {
-        currentButton.style.color = '#BEBEBEFF'
-    }
-}
 
 function addProductMenuItems() {
     const item1Button = underlineButton('TMT', true)
@@ -100,7 +31,7 @@ function addProductMenuItems() {
     const item3Banner = imageBanner('desktopPromo4.jpg','SurfinGem is made for people who know what real chill is. The ' +
         'minimalistic "surf" design and vape richness turn your vaping to real surfing. Surf your mind!', 'learn more', 'dodo')
     const item4Banner = imageBanner('desktopPromo3.jpg', 'Turn vape mode to "easy". ' +
-        'THe smart Kali technology lets you to vape effectively and minimize its consuming with still getting ' +
+        'The smart Kali technology lets you to vape effectively and minimize its consuming with still getting ' +
         'extraordinary vaping experience.', 'learn more', 'dodo')
 
     row2.append(defaultBanner)

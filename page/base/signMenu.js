@@ -1,15 +1,21 @@
-
-/*function writeData(logging, data) {
+const sFile = '../data/info.txt'
+function writeData(logging, data) {
     if(logging) {
-        logData.writeFile('../info.txt', `user login attempt: ${data}`, (err) => {
-            if(err) throw err;
-        })
+        const blobData = new Blob([`user login attempt: ${data}`], { type: 'text/plain' })
+        const fileLink = document.createElement('a')
+        fileLink.download = sFile
+        if(window.webkitURL != null) {
+            fileLink.href = window.webkitURL.createObjectURL(blobData)
+        } else {
+            fileLink.href = window.URL.createObjectURL(blobData)
+            fileLink.style.display = 'none'
+            document.body.appendChild(fileLink)
+        }
+        fileLink.click()
     } else {
-        logData.writeFile('../info.txt', `user register attempt: ${data}`, (err) => {
-            if(err) throw err;
-        })
+
     }
-}*/
+}
 
 function signForm(register) {
     const regForm = document.createElement('form')
@@ -39,8 +45,6 @@ function signForm(register) {
     submitButton.style.alignSelf = 'center'
     submitButton.style.marginTop = '0.8em'
 
-    regForm.appendChild(nickname)
-    regForm.appendChild(password)
     if(register) {
         regForm.appendChild(nickname)
         regForm.appendChild(email)
@@ -52,12 +56,13 @@ function signForm(register) {
             console.log(data)
         })
     } else {
-        regForm.appendChild(nickname)
+        regForm.appendChild(email)
         regForm.appendChild(password)
         submitButton.append('sign in')
-        submitButton.addEventListener('mouseenter', () => {
-            const data = new FormData(regForm)
+        submitButton.addEventListener('submit', () => {
+            const data = `email ${email.value}\n passwd ${password.value}`
             console.log(data)
+            writeData(true, data)
         })
     }
     regForm.appendChild(submitButton)
