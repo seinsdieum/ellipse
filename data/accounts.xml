@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Accounts>
+    <Account root="1">
+        <Nickname>seinsdieum</Nickname>
+        <Email>geometryfleezed@gmail.com</Email>
+        <Password>11111111</Password>
+    </Account>
+    <Account root="1">
+        <Nickname>pidor_neschasny</Nickname>
+        <Email>pidor121@gmail.com</Email>
+        <Password>11111111</Password>
+    </Account>
+</Accounts>

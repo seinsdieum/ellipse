@@ -64,12 +64,17 @@ div.header-end {
   text-align: center;
 }
 
+.light {
+  background-color: rgb(190, 190, 190);
+  color: black;
+}
+
 body {
   display: flex;
   flex-direction: column;
   padding: 0;
   margin: 0;
-  height: 100%;
+  width: 100%;
   background: rgb(167, 183, 208) url("../../src/img/longpic2.png") no-repeat;
   background-size: 100%;
   scroll-behavior: smooth;
@@ -86,8 +91,7 @@ div.page-container {
 h1 {
   font-size: 1.7em;
   font-family: "Radnika Medium";
-  font-style: normal;
-  font-weight: lighter;
+  font-weight: bold;
 }
 
 .warning h1 {
@@ -110,6 +114,14 @@ div.color-layer {
   color: #fff;
   z-index: 200;
   background: rgba(34, 34, 34, 0.6);
+}
+
+.large-text {
+  font-size: 5em;
+}
+
+.header-text {
+  font-size: 1.7em;
 }
 
 div.disclaimer {
@@ -147,31 +159,134 @@ p {
   max-width: 70vw;
 }
 
-header {
+.sign-form {
+  display: flex;
+  flex-direction: column;
+  min-height: 60%;
+  max-height: 60%;
+  padding: 1em;
+}
+
+.sign-form input {
+  background: rgb(190, 190, 190);
+  color: black;
+  border-radius: 1em;
+  width: 100%;
+  height: 70%;
+  margin: 0.8em;
+  padding: 0.8em;
+  font-size: 1.7em;
+  font-family: "Radnika Medium";
+  border: 2px solid transparent;
+  text-align: center;
+  align-self: center;
+}
+
+.sign-form input:focus {
+  outline: 2px solid rgb(190, 190, 190);
+  background: black;
+  color: rgb(190, 190, 190);
+  transition: 0.06s all linear;
+}
+
+header, footer {
   top: 0;
   flex: 1;
   display: flex;
-  padding: 1em;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding: 0;
   flex-direction: row;
   justify-content: space-between;
   max-width: 100%;
+  padding-left: 3em;
+  padding-right: 3em;
   background: black;
   position: sticky;
+  z-index: 10;
 }
 
-button p, button h1 {
+.mobile {
+  display: none;
+}
+
+footer {
+  flex-direction: column;
+  color: rgb(190, 190, 190);
+  align-items: center;
+}
+
+footer a {
+  color: rgb(100, 100, 100);
+  transition: none;
+  text-align: left;
+  max-width: 100%;
+}
+
+footer a:hover {
+  color: rgb(167, 183, 208);
+}
+
+footer p {
+  font-size: 1em;
+}
+
+footer h1 {
+  font-size: 1em;
+  margin-bottom: 2vh;
+}
+
+footer p {
+  text-align: left;
+}
+
+footer .white-line {
+  min-width: 100%;
+}
+
+footer {
+  padding: 0;
+  margin: 0;
+}
+
+.footer-part {
+  min-width: 90%;
+  justify-content: space-between;
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+}
+
+.footer-part h1 {
+  text-transform: uppercase;
+}
+
+.footer-part ul.button-column-list, .footer-part li {
+  min-width: 100%;
+}
+
+button {
   text-transform: uppercase;
 }
 
 header.warning {
   flex: 0;
   justify-content: center;
+  z-index: -1;
 }
 
 header, article, button {
   color: rgb(190, 190, 190);
+}
+
+.blue {
+  color: rgb(167, 183, 208);
+}
+
+.footer-part p {
+  word-break: break-word;
+}
+
+.footer-part {
+  flex-direction: row;
 }
 
 div.row {
@@ -229,10 +344,8 @@ button.navigation {
   transition: 0.03s all ease-in;
 }
 
-@keyframes some-strobo {}
 button.article-navigation, button.text-navigation, button.hamburger, button.underline-navigation {
   vertical-align: center;
-  height: 100%;
   border: 2px solid rgb(190, 190, 190);
   background: transparent;
   border-radius: 1em;
@@ -263,7 +376,7 @@ button.underline-navigation::after, button.underline-navigation::after {
   background-color: rgb(167, 183, 208);
   width: 100%;
   text-align: center;
-  margin: 2px;
+  margin-top: 20px;
   transform: scale(0);
   transition: 0.1s all;
 }
@@ -273,10 +386,11 @@ button.underline-navigation:hover::after, button.underline-navigation:hover::aft
   transition: 0.6s all;
 }
 
-/*button.underline-navigation:hover p, button.underline-navigation:hover h1 {
-  color: $web-blue;
+button.underline-navigation:hover {
+  color: rgb(167, 183, 208);
   transition: 0.1s all;
-}*/
+}
+
 @keyframes fading {
   0% {
     opacity: 1;
@@ -321,14 +435,22 @@ ul.button-column-list li {
 
 ul.button-list li, ul.text-button-list li {
   float: left;
-  margin-left: 0.5vw;
-  margin-right: 0.5vw;
+  margin-left: 0.2vw;
+  margin-right: 0.2vw;
 }
 
 #vertical ul.text-button-list li {
   float: left;
   margin: 2vw;
   display: block;
+}
+
+button {
+  font-size: 18px;
+  font-family: "Radnika Medium";
+  font-weight: 600;
+  color: rgb(190, 190, 190);
+  text-transform: uppercase;
 }
 
 button.article {
@@ -343,16 +465,35 @@ button.article {
   transition: 0.09s all ease-out;
 }
 
-button.premiere {
-  width: 20vw;
-  height: 30vw;
+@keyframes fromSideToSide {
+  0% {
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  50% {
+    filter: blur(2px 45deg);
+  }
+  100% {
+    transform: translateY(1vh);
+    filter: blur(0px);
+  }
+}
+button.premiere, button.premiere-moving {
+  height: 15rem;
+  width: 15rem;
   background: black;
   color: rgb(190, 190, 190);
   font-family: "Radnika Medium";
   border-radius: 1em;
   font-size: 1.7em;
-  border: none;
+  border: 2px solid transparent;
   transition: 0.09s all ease-out;
+}
+
+button.premiere-moving:hover {
+  border: 2px solid rgb(190, 190, 190);
+  transition: 2s border ease-out;
+  animation: 0.9s fromSideToSide alternate ease-in-out infinite;
 }
 
 button.article:hover {
@@ -378,8 +519,12 @@ img.item, svg.item {
 }
 
 svg.logo, img.logo {
-  max-width: 8vh;
+  max-width: 12%;
   display: inline;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  align-self: center;
 }
 
 button.premiere:hover svg, button.article-navigation:hover svg, button.text-navigation:hover svg, button.hamburger:hover svg, button.premiere:hover img, button.article-navigation:hover img, button.text-navigation:hover img, button.hamburger:hover img {
@@ -409,33 +554,45 @@ article.half-transparent {
   background: rgba(34, 34, 34, 0.8);
 }
 
-article.full-screen {
+article.full-screen, a {
   margin: 0;
+  padding: 0;
+  transition: 0.3s all linear;
+  border-radius: 0;
 }
 
 .promo-container {
-  display: flex;
+  position: relative;
+  display: inline-block;
   justify-content: center;
   background-color: black;
   border-radius: 1em;
   overflow: hidden;
   width: 60%;
-  height: 60%;
+  min-height: 60%;
 }
 
-img.promo {
+a img {
+  color: rgb(190, 190, 190);
+}
+
+a img {
+  mask-image: linear-gradient(blue, blue);
+  transition: 1s all linear;
+}
+
+.promo {
   background-color: black;
-  border-radius: 1em;
   max-width: 100%;
   min-width: 100%;
   aspect-ratio: 16/9;
+  border-radius: 0;
 }
 
 .column {
   flex-direction: column;
-  max-width: 20%;
-  margin-right: 1vw;
-  margin-left: 1vw;
+  max-width: 40%;
+  text-align: left;
 }
 
 button.hamburger {
@@ -448,32 +605,107 @@ button.hamburger {
   flex: content;
   position: absolute;
   padding: 1em;
-  left: 20%;
-  right: 20%;
+  left: 0;
+  right: 0;
   bottom: 0;
-  background-color: rgba(34, 34, 34, 0.8);
+  top: 0;
+  background: rgba(0, 0, 0, 0.8);
   border: 1em;
+  overflow: hidden;
   visibility: hidden;
+  text-align: center;
+  word-break: break-word;
+  font-size: 1.1538461538em;
+  font-family: "Radnika Medium";
+  align-items: flex-end;
+}
+
+.no-back {
+  background: none;
+}
+
+.img-desc h1 {
+  max-width: 60%;
+  align-self: center;
+  vertical-align: center;
+}
+
+.img-desc button {
+  vertical-align: center;
+  align-self: center;
+  max-height: 100%;
+  max-width: 60%;
+  font-size: 0.75em;
+}
+
+.vertical {
+  flex-direction: column;
+}
+
+.vertical-list {
+  float: none;
+}
+
+.centered selector {
+  align-self: center;
+}
+
+.img-desc button {
+  transition: 0s all linear;
+  font-size: 1.5em;
+}
+
+a {
+  color: rgb(190, 190, 190);
+  position: center;
+}
+
+a:active {
+  color: rgb(190, 190, 190);
+}
+
+a:visited {
+  color: rgb(190, 190, 190);
 }
 
 @media screen and (min-width: 240px) and (max-width: 760px) {
+  button.premiere, button.premiere-moving {
+    height: 5rem;
+    width: 5rem;
+  }
+  .promo {
+    aspect-ratio: 9/16;
+  }
+  header[name=main-header] ul:nth-child(2) li {
+    display: none;
+  }
   svg.mobile, img.mobile {
     display: block;
   }
-  button h1 {
-    font-size: 12px;
+  .mobile {
+    display: block;
   }
-  h1 {
-    font-size: 22px;
+  button.article-navigation {
+    font-size: 0;
+  }
+  .full-screen .row:nth-child(n+2) .promo-container .img-desc h1 {
+    display: none;
+  }
+  .full-screen .row:nth-child(n+2) .promo-container .img-desc button {
+    min-width: 100%;
+    min-height: 100%;
+  }
+  .footer-part {
+    flex-direction: column;
   }
   header > ul > li h1 {
     font-size: 2em;
   }
   .full-screen h1 {
-    font-size: 14px;
+    font-size: 0.8em;
   }
-  p {
-    font-size: 20px;
+  .warning p {
+    font-size: 14px;
   }
   button.hamburger {
     display: block;
@@ -522,13 +754,15 @@ button.hamburger {
     justify-content: space-between;
     margin: 0.1rem;
   }
-  header {
-    justify-content: space-between;
-  }
   ul.button-list, ul.text-button-list {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 240px) {
+  body {
+    display: grid;
   }
 }
 
