@@ -19,20 +19,11 @@ function addProductMenuItems() {
         '\nDefine your favourite between the hottest devices.' +
     '\n We will help you in searching for a real vapour surfing power machine.', 'learn more about all products', 'dodo')
 
-    const item1Banner = imageBanner('desktopPromo3.jpg', 'Hurry. Dream. Fly away. TMT, the first' +
-        ' euphoritine-based platform in the world, takes our mind up to these days. The most comfortable and geeky way' +
-        ' to chill. Adjustable sizes, diamond mechanics and the beauty have made it`s own. All that you left to do is ' +
-        'to research new fields of humanity happiness   ', 'learn more', 'dodo')
-    const item2Banner = imageBanner('desktopPromo1.jpg','Verigon is the spirit of mind, power and leading.' +
-        ''+ 'Aim of a Verigon machine is to show you how extreme looks' +
-        '. Verigon is more than stimulator vapour machine. it makes you really powered up. In Verigon - we trust.' +
-        '', 'learn more', 'dodo')
+    const item1Banner = imageBanner('ellipse_hotNew.jpeg', 'Hurry. Dream. Fly away. By TMT', '', 'TMT.html', false, false, false, true)
+    const item2Banner = imageBanner('ellipse_hotNew.jpeg', 'Spirit of mind. By Verigon', '', 'TMT.html', false, false, false, true)
 
-    const item3Banner = imageBanner('desktopPromo4.jpg','SurfinGem is made for people who know what real chill is. The ' +
-        'minimalistic "surf" design and vape richness turn your vaping to real surfing. Surf your mind!', 'learn more', 'dodo')
-    const item4Banner = imageBanner('desktopPromo3.jpg', 'Turn vape mode to "easy". ' +
-        'The smart Kali technology lets you to vape effectively and minimize its consuming with still getting ' +
-        'extraordinary vaping experience.', 'learn more', 'dodo')
+    const item3Banner = imageBanner('ellipse_hotNew.jpeg', 'The power of chill. By SurfinGem', '', 'TMT.html', false, false, false, true)
+    const item4Banner = imageBanner('ellipse_hotNew.jpeg', 'Easy vape mode. By Kali', '', 'TMT.html', false, false, false, true)
 
     row2.append(defaultBanner)
 

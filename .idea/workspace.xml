@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ec2ea99-4bd9-452f-83b9-4151fb573169" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/page/base/targetMediaHandler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/accounts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/accounts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/base/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/Navigation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/base/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/base/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/base/productMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/productMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/base/signMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/signMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/base/targetMediaHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/targetMediaHandler.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/base/variousObjects.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/variousObjects.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/style/base-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/page/style/base-styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/style/base-styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/page/style/base-styles.css.map" afterDir="false" />
@@ -107,6 +103,8 @@
       <workItem from="1673397442231" duration="4275000" />
       <workItem from="1673476247099" duration="5219000" />
       <workItem from="1673635100099" duration="13886000" />
+      <workItem from="1673808512381" duration="28056000" />
+      <workItem from="1673917189477" duration="3871000" />
     </task>
     <servers />
   </component>

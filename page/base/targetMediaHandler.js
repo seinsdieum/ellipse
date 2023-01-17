@@ -6,30 +6,33 @@ const targetTeaserContainer = targetBannersContainers[2]
 const targetAllVapesContainer = targetBannersContainers[3]
 const targetCompanyHistoryContainer = targetBannersContainers[4]
 
-function fullScreenBanner(src, descTitle, buttonTitle, buttonLink, declineDescHiding,showViaScroll, makeImageChanger, imageList) {
-    const banner = imageBanner(src, descTitle, buttonTitle, buttonLink, true, declineDescHiding,showViaScroll, makeImageChanger, imageList)
+function fullScreenBanner(src, descTitle, buttonTitle, buttonLink, declineDescHiding,showViaScroll, noBack, textSize) {
+    const banner = imageBanner(src, descTitle, buttonTitle, buttonLink, true, declineDescHiding,showViaScroll, noBack)
     banner.style.width = '100%'
     banner.style.borderRadius = '0'
     banner.style.position = 'relative'
     banner.style.zIndex = '0'
+    if(textSize === 'big') {
+        banner.style.fontSize = '2em'
+    } else if(textSize === 'small') {
+        banner.style.fontSize = '0.5em'
+    } else if(textSize === 'medium') {
+        banner.style.fontSize = '1.4em'
+    }
     banner.addEventListener('scroll' ,() => {
         show(banner)
     })
     return banner
 }
 
-const hotNew = fullScreenBanner('desktopPromo1.jpg', 'It becomes legendary...' +
-    ' TMT-46 - release in june 3046. ', '', 'dodo', true, true)
-const teaser = fullScreenBanner('desktopPromo1.jpg', 'It becomes legendary...' +
-    ' TMT-46 will be released in june 3046. Subscribe to stay in tune and make a pre-order now.', 'learn more', 'dodo', true)
-const allVapes = fullScreenBanner('desktopPromo1.jpg', 'It becomes legendary...' +
-    ' TMT-46 will be released in june 3046. Subscribe to stay in tune and make a pre-order now.', 'learn more', 'dodo', true, )
-const companyHistory = fullScreenBanner('desktopPromo3.jpg', 'It becomes legendary...' +
-    ' TMT-46 will be released in june 3046. Subscribe to stay in tune and make a pre-order now.', 'learn more', 'dodo', true, )
-const shop = fullScreenBanner('desktopPromo2.jpg', '                Ellipse, as the premium certified Emirates brand, has been focusing on technology innovation and\n' +
-    '                investment, which is only to give you more vape life possibilities and enjoy the beauty of vape.\n' +
-    '                The instant vape surfing effect is our main target to present you innovative vape experience, giving\n' +
-    '                you the unique possibilities and feelings.', 'vape ellipse shop', 'dodo', true, )
+const hotNew = fullScreenBanner('ellipse_hotNew.jpeg', 'It becomes legendary...' +
+    ' TMT-46 - release in june 3046. ', '', 'dodo', true, true, true, 'medium')
+const teaser = fullScreenBanner('desktopPromo1.jpg', 'Verigon I', '', 'dodo', true, true, false, 'big' )
+const allVapes = fullScreenBanner('desktopPromo1.jpg', '' +
+    'Vape Catalog', '', 'dodo', true, true, false, 'big')
+const companyHistory = fullScreenBanner('ellipse_companyHistory.jpeg', 'Ellipse history' +
+    '', '', 'dodo', true, true, true, 'big' )
+const shop = fullScreenBanner('desktopPromo2.jpg', 'Ellipse Shop', '', 'shop.html', true, true, false, 'big' )
 console.log(targetBannersContainers)
 targetHotNewContainer.appendChild(hotNew)
 targetTeaserContainer.appendChild(teaser)

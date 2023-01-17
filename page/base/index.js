@@ -26,6 +26,41 @@ disclaimerNo[0].addEventListener('mousedown', () => {
     history.back()
 })
 
+function onVisible(element, callback) {
+    new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if(entry.intersectionRatio > 0) {
+                callback(element);
+                observer.disconnect();
+            }
+        });
+    }).observe(element);
+}
+
+function onHidden(element, callback) {
+    new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if(entry.intersectionRatio <= 0) {
+                callback(element);
+                observer.disconnect();
+            }
+        });
+    }).observe(element);
+}
+const mainArticle = document.querySelector('article.full-screen')
+console.log(mainArticle)
+console.log(mainArticle.childNodes)
+for(let item of mainArticle.children) {
+    onHidden(item, () => {
+        item.style.visibility = 'none'
+        item.style.animation = 'none'
+    })
+    onVisible(item, () => {
+        item.style.visibility = 'visible'
+        item.style.animation = appearAnim()
+    })
+}
+
 
 
 
