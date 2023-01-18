@@ -26,16 +26,28 @@ function fullScreenBanner(src, descTitle, buttonTitle, buttonLink, declineDescHi
 }
 
 const hotNew = fullScreenBanner('ellipse_hotNew.jpeg', 'It becomes legendary...' +
-    ' TMT-46 - release in june 3046. ', '', 'dodo', true, true, true, 'medium')
-const teaser = fullScreenBanner('desktopPromo1.jpg', 'Verigon I', '', 'dodo', true, true, false, 'big' )
+    ' TMT-46 - release in june 3046. ', '', 'LLALKAA', true, true, true, 'medium')
+const hotNew2 = fullScreenBanner('ellipse_hotNew.jpeg', 'Hello World' +
+    '', '', 'LLALKAA', true, false, true, 'medium')
+const hotNew3 = fullScreenBanner('ellipse_hotNew.jpeg', 'Poshel nahui', '', 'LLALKAA', true, false, true, 'medium')
+const teaser = fullScreenBanner('desktopPromo1.jpg', 'Verigon I - first mind spirit in it`s kind', '', 'dodo', true, false, false, 'medium' )
 const allVapes = fullScreenBanner('desktopPromo1.jpg', '' +
     'Vape Catalog', '', 'dodo', true, true, false, 'big')
 const companyHistory = fullScreenBanner('ellipse_companyHistory.jpeg', 'Ellipse history' +
     '', '', 'dodo', true, true, true, 'big' )
 const shop = fullScreenBanner('desktopPromo2.jpg', 'Ellipse Shop', '', 'shop.html', true, true, false, 'big' )
-console.log(targetBannersContainers)
+
+teaserSlider = imageBannerList({hotNew, teaser})
+targetHotNewContainer.appendChild(teaserSlider)
+targetAllVapesContainer.appendChild(allVapes)
+targetCompanyShopContainer.appendChild(shop)
+targetCompanyHistoryContainer.appendChild(companyHistory)
+
+
+/*
 targetHotNewContainer.appendChild(hotNew)
-targetTeaserContainer.appendChild(teaser)
+*/
+/*targetTeaserContainer.appendChild(teaser)
 targetAllVapesContainer.appendChild(allVapes)
 targetCompanyHistoryContainer.appendChild(companyHistory)
-targetCompanyShopContainer.appendChild(shop)
+targetCompanyShopContainer.appendChild(shop)*/

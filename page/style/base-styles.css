@@ -88,6 +88,90 @@ div.page-container {
   flex-direction: column;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.left {
+  float: left;
+  left: 0.4vw;
+}
+
+.slide-navigation {
+  border: none;
+  color: rgb(190, 190, 190);
+  background: transparent;
+  text-shadow: 0 0 10px black;
+  -webkit-text-stroke: 0 black;
+  font-size: 10em;
+  align-self: center;
+  max-height: 2em;
+  min-width: 2em;
+  opacity: 0.3;
+  transform: scale(1);
+  transition: 0.65s opacity, transform ease-in;
+}
+
+.slide-navigation:active {
+  transition: 0s opacity, transform ease-in-out;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.slide-line-list li {
+  min-width: 3vw;
+  max-width: 3vw;
+  min-height: 0.4vh;
+  max-height: 0.4vh;
+  transform: scale(1);
+  margin: 0.4vw;
+  border-radius: 1em;
+  background: rgb(190, 190, 190);
+  transition: 0.1s all ease-in;
+  display: inline-block;
+}
+
+.slide-line-list {
+  padding: 0;
+  background: none;
+  bottom: 12%;
+  left: 40%;
+  right: 40%;
+  align-items: center;
+  text-decoration: none;
+  text-align: center;
+  float: left;
+}
+
+/*@keyframes slide-line-going {
+  0% {
+    background: linear-gradient(90deg,$web-blue, $web-white);
+  }
+  100% {
+    background: linear-gradient(90deg,$web-blue, $web-blue);
+  }
+}*/
+.right {
+  float: right;
+  right: 0.4vw;
+}
+
+.absolute .right {
+  right: 0;
+}
+
+.slide-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: none;
+  align-items: center;
+  pointer-events: inherit;
+}
+
 h1 {
   font-size: 1.7em;
   font-family: "Radnika Medium";
@@ -344,6 +428,25 @@ button.navigation {
   transition: 0.03s all ease-in;
 }
 
+.cover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: 1s all linear;
+  opacity: 0;
+}
+
+.black {
+  background: black;
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(10px);
+  }
+}
 button.article-navigation, button.text-navigation, button.hamburger, button.underline-navigation {
   vertical-align: center;
   border: 2px solid rgb(190, 190, 190);
@@ -406,6 +509,14 @@ button.underline-navigation:hover {
   }
   100% {
     filter: blur(0);
+    opacity: 1;
+  }
+}
+@keyframes appearing-no-blur {
+  0% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
   }
 }
@@ -672,9 +783,6 @@ a:visited {
   button.premiere, button.premiere-moving {
     height: 5rem;
     width: 5rem;
-  }
-  .promo {
-    aspect-ratio: 9/16;
   }
   header[name=main-header] ul:nth-child(2) li {
     display: none;
