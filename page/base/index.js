@@ -31,7 +31,6 @@ function onVisible(element, callback) {
         entries.forEach(entry => {
             if(entry.intersectionRatio > 0) {
                 callback(element);
-                observer.disconnect();
             }
         });
     }).observe(element);
@@ -40,26 +39,25 @@ function onVisible(element, callback) {
 function onHidden(element, callback) {
     new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            if(entry.intersectionRatio <= 0) {
+            if(entry.intersectionRatio < 0.0005) {
                 callback(element);
-                observer.disconnect();
+                console.log('aaa')
             }
         });
     }).observe(element);
+
 }
 const mainArticle = document.querySelector('article.full-screen')
 console.log(mainArticle)
-console.log(mainArticle.childNodes)
-for(let item of mainArticle.children) {
-    onHidden(item, () => {
-        item.style.visibility = 'none'
-        item.style.animation = 'none'
-    })
+/*for(let item of mainArticle.children) {
+    item.style.transition = '1s opacity linear'
+
     onVisible(item, () => {
-        item.style.visibility = 'visible'
-        item.style.animation = appearAnim()
+        item.style.opacity = '1'
     })
-}
+    item.style.opacity = '0'
+
+}*/
 
 
 

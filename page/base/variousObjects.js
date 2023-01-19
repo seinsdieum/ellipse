@@ -9,7 +9,9 @@ function row() {
 function appearAnim() {
     return `0.32s appearing ease-out`
 }
-
+function mediumAppearAnim() {
+    return `1s appearing-no-blur ease-out`
+}
 function longerAppearAnim() {
     return `2s appearing ease-out`
 }
@@ -168,7 +170,7 @@ function imageBanner
      declineDescHiding,
      showingViaScroll,
      noBack,
-     additionalDescriptionsList)
+     listImages, listDescriptions)
 {
     
     const bannerContainer = document.createElement('div')
@@ -188,14 +190,7 @@ function imageBanner
 
 
 
-/*
-
-    bannerContainer.appendChild(loading)
-
-*/
-
     banner.addEventListener('load', () => {
-        loading.remove()
         console.log('loaded')
 
         bannerContainer.appendChild(banner)
@@ -232,5 +227,141 @@ function imageBanner
     })
 
     return bannerContainer;
+}
+
+function slide(element, slidePercent) {
+    for(let child of element) {
+        if(child.className !== 'slide-navigation absolute left' && child.className !== 'slide-navigation absolute right' && child.className !== 'slide-line-list absolute') {
+            child.style.transform = `translateX(${slidePercent}%)`
+        }
+    }
+}
+
+function imageBannerList(bannerList) {
+    const banList = document.createElement('row')
+    banList.style.overflow = 'hidden'
+    banList.style.maxWidth = '100%'
+    banList.style.display = 'flex'
+    banList.style.flexDirection = 'row'
+    banList.style.position = 'relative'
+
+    const slideControls = document.createElement('div')
+    slideControls.className = 'slide-controls'
+
+    const leftButton = document.createElement('button')
+    leftButton.className = 'slide-navigation absolute left'
+    leftButton.style.maxHeight = '20%'
+    leftButton.style.alignSelf = 'center'
+    leftButton.append('\u276E')
+
+    const rightButton = document.createElement('button')
+    rightButton.className = 'slide-navigation absolute right'
+    rightButton.style.maxHeight = '20%'
+    rightButton.style.alignSelf = 'center'
+    rightButton.append('\u276F')
+
+    const slideLine = document.createElement('ul')
+    slideLine.className = 'slide-line-list absolute'
+
+    console.log(bannerList)
+    let translation = 0;
+    let bannerCounter = 0
+    let bannerIndex = 1
+    for(const banner of Object.entries(bannerList)) {
+        banner[1].style.transition = '0.85s transform ease-in-out'
+        bannerCounter++
+        banner[1].style.minWidth = '100%'
+        banList.appendChild(banner[1])
+
+        const slideLineItem = document.createElement('li')
+        slideLine.appendChild(slideLineItem)
+    }
+
+    banList.appendChild(leftButton)
+    banList.appendChild(rightButton)
+    banList.appendChild(slideLine)
+
+    function point(slideLineItem) {
+        slideLineItem.style.background = '#A7B7D0FF'
+        slideLineItem.style.animation = '10s slide-line-going linear'
+    }
+
+    function pointOut(slideLineItem) {
+        slideLineItem.style.background = '#BEBEBEFF'
+        slideLineItem.style.animation = 'none'
+    }
+    point(slideLine.firstChild)
+
+    function slideRight() {
+        slide(banList.children, translation - 100)
+        translation -=100
+        pointOut(slideLine.children[bannerIndex-1])
+        bannerIndex += 1
+        point(slideLine.children[bannerIndex-1])
+    }
+
+    function slideLeft() {
+        slide(banList.children, translation + 100)
+        translation +=100
+        pointOut(slideLine.children[bannerIndex-1])
+        bannerIndex -= 1
+        point(slideLine.children[bannerIndex-1])
+    }
+
+    function returnSlidePosition() {
+        slide(banList.children, 0)
+        translation = 0
+        pointOut(slideLine.children[bannerIndex-1])
+        bannerIndex = 1
+        point(slideLine.children[bannerIndex-1])
+    }
+
+    function moveSlidePositionTOTheEnd() {
+
+        translation = (bannerCounter-1)*(-100)
+        slide(banList.children, translation)
+        pointOut(slideLine.children[bannerIndex-1])
+        bannerIndex = bannerCounter
+        point(slideLine.children[bannerIndex-1])
+    }
+
+    function moveToSlideLinePoint(point) {
+        pointOut(slideLine.children[bannerIndex-1])
+        bannerIndex = point
+        translation = (bannerIndex-1)*(-100)
+        slide(banList.children, translation)
+        point(slideLine.children[bannerIndex-1])
+    }
+
+    function setSlideInterval() {
+
+    }
+
+    rightButton.addEventListener('mousedown', () => {
+        if(bannerIndex+1 <= bannerCounter) {
+            slideRight()
+        } else {
+            returnSlidePosition()
+        }
+    })
+
+
+    leftButton.addEventListener('mousedown', () => {
+        if(bannerIndex-1 > 0) {
+            slideLeft()
+        } else {
+            moveSlidePositionTOTheEnd()
+        }
+    })
+
+    setInterval(() => {
+        if(bannerIndex+1 <= bannerCounter) {
+            slideRight()
+        } else {
+            returnSlidePosition()
+        }
+    }, 10000)
+
+    return banList
 }
 
