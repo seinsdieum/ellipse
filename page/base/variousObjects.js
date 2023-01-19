@@ -333,6 +333,10 @@ function imageBannerList(bannerList) {
         point(slideLine.children[bannerIndex-1])
     }
 
+    function setSlideInterval() {
+
+    }
+
     rightButton.addEventListener('mousedown', () => {
         if(bannerIndex+1 <= bannerCounter) {
             slideRight()
@@ -357,6 +361,7 @@ function imageBannerList(bannerList) {
             returnSlidePosition()
         }
     }, 10000)
+
     return banList
 }
 

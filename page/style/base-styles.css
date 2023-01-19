@@ -105,8 +105,8 @@ div.page-container {
   -webkit-text-stroke: 0 black;
   font-size: 10em;
   align-self: center;
-  max-height: 2em;
-  min-width: 2em;
+  max-height: unset !important;
+  min-width: unset !important;
   opacity: 0.3;
   transform: scale(1);
   transition: 0.65s opacity, transform ease-in;
@@ -127,7 +127,7 @@ div.page-container {
   margin: 0.4vw;
   border-radius: 1em;
   background: rgb(190, 190, 190);
-  transition: 0.1s all ease-in;
+  transition: 0.65s all ease-in-out;
   display: inline-block;
 }
 
@@ -329,6 +329,19 @@ footer .white-line {
 footer {
   padding: 0;
   margin: 0;
+}
+
+.top-sticky {
+  position: sticky;
+  top: 0;
+}
+
+.bg-black {
+  background: black;
+}
+
+.full-width {
+  min-width: 100%;
 }
 
 .footer-part {
@@ -589,6 +602,14 @@ button.article {
     filter: blur(0px);
   }
 }
+.bottom-marked {
+  border-bottom: 1px solid rgb(190, 190, 190);
+}
+
+.top-marked {
+  border-top: 1px solid rgb(190, 190, 190);
+}
+
 button.premiere, button.premiere-moving {
   height: 15rem;
   width: 15rem;
@@ -866,6 +887,15 @@ a:visited {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+  button.slide-navigation.absolute {
+    max-height: unset !important;
+    min-width: unset !important;
+    font-size: 5em !important;
+  }
+  .img-desc button {
+    font-size: unset;
+    max-width: unset;
   }
 }
 @media screen and (min-width: 0px) and (max-width: 240px) {
