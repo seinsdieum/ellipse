@@ -25,7 +25,43 @@ function addProductMenuItems() {
     const item3Banner = imageBanner('ellipse_hotNew.jpeg', 'The power of chill. By SurfinGem', '', 'TMT.html', false, false, false, true)
     const item4Banner = imageBanner('ellipse_hotNew.jpeg', 'Easy vape mode. By Kali', '', 'TMT.html', false, false, false, true)
 
-    row2.append(defaultBanner)
+
+    const hotNew = fullScreenBanner('ellipse_hotNew.jpeg',
+        ' TMT-46 - release in june 3046. ',
+        '',
+        'LLALKAA',
+        true,
+        true,
+        true,
+        '')
+    const hotNew4 = fullScreenBanner('ellipse_hotNew.jpeg',
+        '',
+        'Our future plans for enhancing your vaping experience',
+        'LLALKAA',
+        true,
+        false,
+        true,
+        '')
+    const hotNew3 = fullScreenBanner('ellipse_hotNew.jpeg',
+        '',
+        'Drochevo Event',
+        'LLALKAA',
+        true,
+        false,
+        true,
+        '')
+    const hotNew2 = fullScreenBanner('desktopPromo1.jpg',
+        'Verigon I - first mind spirit in it`s kind',
+        '',
+        'dodo',
+        true,
+        false,
+        false,
+        '')
+
+    const defSlider = imageBannerList({hotNew, hotNew2, hotNew3, hotNew4}, 'small')
+
+    row2.append(defSlider)
 
     row1.append(menuList)
 
@@ -36,7 +72,7 @@ function addProductMenuItems() {
         selectButton(item3Button)
     }
     function switchBanner(ban) {
-        let currentBanner = product.querySelector('div.promo-container');
+        let currentBanner = product.querySelector('div.banner-content');
         if (!(currentBanner === ban)) {
             switchHiding()
             currentBanner.replaceWith(ban)
@@ -55,7 +91,7 @@ function addProductMenuItems() {
     })
     item3Button.addEventListener('mouseenter', () => {
         deselectButton()
-        switchBanner(defaultBanner)
+        switchBanner(defSlider)
         selectButton(item3Button)
     })
     item4Button.addEventListener('mouseenter', () => {

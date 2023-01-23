@@ -7,6 +7,7 @@
     <list default="true" id="8ec2ea99-4bd9-452f-83b9-4151fb573169" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/base/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/base/productMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/productMenu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/base/targetMediaHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/targetMediaHandler.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/base/variousObjects.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/variousObjects.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/style/base-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/page/style/base-styles.css" afterDir="false" />
@@ -49,7 +50,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.12.1&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.11.18&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/seinsdieum/Documents/GitHub/me&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/seinsdieum/Documents/GitHub/ellipse_schema&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -107,7 +108,11 @@
       <workItem from="1673999566818" duration="20933000" />
       <workItem from="1674029974697" duration="2756000" />
       <workItem from="1674080977584" duration="1351000" />
-      <workItem from="1674088351040" duration="3597000" />
+      <workItem from="1674088351040" duration="8950000" />
+      <workItem from="1674242119629" duration="207000" />
+      <workItem from="1674294409992" duration="5669000" />
+      <workItem from="1674369729284" duration="38000" />
+      <workItem from="1674449018512" duration="3008000" />
     </task>
     <servers />
   </component>

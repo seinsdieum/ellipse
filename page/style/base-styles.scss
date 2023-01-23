@@ -144,12 +144,18 @@ div.page-container {
   text-shadow: 0 0 10px $web-black;
   -webkit-text-stroke: 0 black;
   font-size: 2*$size-large;
+  font-weight: 100;
+  font-kerning: none;
   align-self: center;
   max-height: unset !important;
   min-width: unset !important;
-  opacity: 0.3;
   transform: scale(1.0);
-  transition: 0.65s opacity, transform ease-in;
+  opacity: 0.1;
+  transition: 0.00s opacity, transform ease-in;
+}
+
+.slide-navigation:hover {
+  opacity: 0.6;
 }
 
 .slide-navigation:active {
@@ -160,28 +166,35 @@ div.page-container {
 
 .slide-line-list li{
 
-  min-width: 3vw;
-  max-width: 3vw;
-  min-height: 0.4vh;
-  max-height: 0.4vh;
+  min-width: 1vw;
+  max-width: 1vw;
+  min-height: 0.2vh;
+  max-height: 0.2vh;
   transform: scale(1);
-  margin: 0.4vw;
+  margin: 0 0.4vw 0  0.4vw;
+  /*
   border-radius: $border-radius-small;
+  */
   background: $web-white;
   transition: 0.65s all ease-in-out;
   display: inline-block;
 }
 
+.banner-content {
+
+}
+
 .slide-line-list {
   padding: 0;
   background: none;
-  bottom: 12%;
+  bottom: 10%;
   left: 40%;
   right: 40%;
-  align-items: center;
+
+  margin: 0 auto;
+
   text-decoration: none;
   text-align: center;
-  float: left;
 }
 
 /*@keyframes slide-line-going {
@@ -192,6 +205,15 @@ div.page-container {
     background: linear-gradient(90deg,$web-blue, $web-blue);
   }
 }*/
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
 
 
 .right {
@@ -213,7 +235,7 @@ div.page-container {
   background: none;
   align-items: center;
   pointer-events: inherit;
-
+  opacity: 0;
 }
 
 h1 {
@@ -348,11 +370,16 @@ footer a {
   color: $web-gray;
   transition: none;
   text-align: left;
-  max-width: 100%;
+  width: 100%;
 }
 
 footer a:hover {
   color: $web-blue;
+}
+
+footer a:hover p {
+  transform: scale(1.4) translateX(15%);
+
 }
 
 footer p {
@@ -362,6 +389,10 @@ footer p {
 footer h1 {
   font-size: $size-small;
   margin-bottom: 2vh;
+}
+
+.banner-content img {
+  transition: 1s all linear;
 }
 
 footer p {
@@ -404,6 +435,10 @@ footer {
 
 .footer-part ul.button-column-list, .footer-part li {
   min-width: 100%;
+}
+
+.footer-part li {
+  width: 100%;
 }
 
 button {
