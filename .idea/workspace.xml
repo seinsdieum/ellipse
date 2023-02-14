@@ -7,7 +7,7 @@
     <list default="true" id="8ec2ea99-4bd9-452f-83b9-4151fb573169" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/base/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/base/productMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/productMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/base/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/base/targetMediaHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/targetMediaHandler.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/base/variousObjects.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/variousObjects.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/style/base-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/page/style/base-styles.css" afterDir="false" />
@@ -50,7 +50,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.12.1&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.11.18&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/seinsdieum/Documents/GitHub/ellipse_schema&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/seinsdieum/Documents/GitHub/raspisanieeeblyat&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -65,6 +65,16 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/data" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ellipse/page/base/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -113,6 +123,11 @@
       <workItem from="1674294409992" duration="5669000" />
       <workItem from="1674369729284" duration="38000" />
       <workItem from="1674449018512" duration="3008000" />
+      <workItem from="1674494870626" duration="18127000" />
+      <workItem from="1674812135875" duration="663000" />
+      <workItem from="1675445178656" duration="439000" />
+      <workItem from="1675720736715" duration="134000" />
+      <workItem from="1675856490620" duration="332000" />
     </task>
     <servers />
   </component>

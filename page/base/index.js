@@ -8,6 +8,8 @@ const disclaimerNo = document.getElementsByName('disclaimerN')
 const discLayer = document.querySelector('div.color-layer')
 const disclaimer = document.querySelector('div.disclaimer')
 
+let forbidScrolling = true;
+
 /*window.addEventListener('scroll', () => {
     let y = 1 + (window.scrollY/5) / 30
     y = y < 1 ? 1 : y // ensure y is always >= 1 (due to Safari's elastic scroll)
@@ -17,9 +19,22 @@ const disclaimer = document.querySelector('div.disclaimer')
 
 })*/
 
+disclaimer.addEventListener('load', () => {
+    forbidScrolling = true;
+    console.log('lol its true')
+})
+
+window.addEventListener('scroll', () => {
+    if(forbidScrolling) {
+        scroll(window.scrollX, 0)
+    } else {
+    }
+})
+
 disclaimerYes[0].addEventListener('mousedown', () => {
     discLayer.style.display = 'none'
     disclaimer.style.display = 'none'
+    forbidScrolling = false;
 })
 
 disclaimerNo[0].addEventListener('mousedown', () => {

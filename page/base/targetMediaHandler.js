@@ -68,12 +68,18 @@ const companyHistory = fullScreenBanner('ellipse_companyHistory.jpeg', 'Ellipse 
     '', '', 'dodo', true, true, true, 'big' )
 const shop = fullScreenBanner('desktopPromo2.jpg', 'Ellipse Shop', '', 'shop.html', true, true, false, 'big' )
 
+const teaserButton1 = styledLayerButton('hey', 'dodo.html', '../../src/img/banner/desktopPromo1.jpg')
+const teaserButton2 = styledLayerButton('hey', 'dodo')
+const teaserButton3 = styledLayerButton('hey', 'dodo')
+const teaserButton4 = styledLayerButton('hey', 'dodo')
+
+const buttonsTeaser = fullScreenBanner('desktopPromo2.jpg', 'here is description', 'here is the button', 'shop.html', true, true, false, 'big', {teaserButton1,teaserButton2,teaserButton3,teaserButton4} )
 
 targetHotNewContainer.appendChild(teaserSlider)
 targetAllVapesContainer.appendChild(allVapes)
 targetCompanyShopContainer.appendChild(shop)
 targetCompanyHistoryContainer.appendChild(companyHistory)
-
+/*targetTeaserContainer.appendChild(buttonsTeaser)*/
 
 /*
 targetHotNewContainer.appendChild(hotNew)

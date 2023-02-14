@@ -166,6 +166,14 @@ div.page-container {
     transform: scale(1.5);
   }
 }
+@keyframes zoomOut {
+  0% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .right {
   float: right;
   right: 0.4vw;
@@ -561,6 +569,58 @@ button.underline-navigation:hover {
     opacity: 1;
   }
 }
+.button-layering {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-gap: 5%;
+  grid-template-rows: 30% 30% 30%;
+  grid-template-columns: 25% 20% 45%;
+  grid-template-areas: "third third description" "fourth first description" "fourth second description";
+}
+
+.button-layering .button-layer:nth-child(1) {
+  grid-area: first;
+}
+
+.button-layering .button-layer:nth-child(2) {
+  grid-area: second;
+}
+
+.button-layering .button-layer:nth-child(3) {
+  grid-area: third;
+}
+
+.button-layering .button-layer:nth-child(4) {
+  grid-area: fourth;
+}
+
+.button-layering .layering-desc {
+  grid-area: description;
+}
+
+.button-layer, .layering-desc {
+  background: black;
+  text-decoration: none;
+  color: rgb(190, 190, 190);
+}
+
+.layering-desc p {
+  margin: 0 auto;
+  vertical-align: center;
+  font-size: 1em;
+}
+
+.layering-desc {
+  display: flex;
+  flex-direction: column;
+}
+
+.layering-desc:nth-child(n) {
+  margin: 0 auto;
+}
+
 .fade {
   opacity: 0;
   transition: opacity 1s;
@@ -685,6 +745,23 @@ svg.logo, img.logo {
   margin: 0;
   text-align: center;
   align-self: center;
+}
+
+.loading-point {
+  min-width: 100%;
+  color: white;
+  background: black;
+  max-width: 100%;
+  font-size: 5em;
+  font-family: "Radnika Medium";
+  min-height: 100%;
+  max-height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 button.premiere:hover svg, button.article-navigation:hover svg, button.text-navigation:hover svg, button.hamburger:hover svg, button.premiere:hover img, button.article-navigation:hover img, button.text-navigation:hover img, button.hamburger:hover img {
