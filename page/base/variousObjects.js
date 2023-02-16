@@ -86,7 +86,17 @@ function deselectButton() {
     }
 }
 
-function imageDesc(desc,buttonText, link, textPreparation, noBack) {
+function loadingDesc(loadingMessage) {
+    const loadingContainer = document.createElement('div')
+    loadingContainer.className = 'loading-point'
+
+    if(loadingMessage === '') {
+        loadingContainer.append('Loading. Please Wait')
+    }
+    return loadingContainer
+}
+
+function imageDesc(desc,buttonText, link, textPreparation, noBack, listButtons) {
     const description = document.createElement('div')
     if(noBack) {
         description.className = 'img-desc no-back'
@@ -102,28 +112,47 @@ function imageDesc(desc,buttonText, link, textPreparation, noBack) {
 
     const linkedButton = button(buttonText, false)
     linkedButton.className = 'underline-navigation'
-    hrefMoment.href = 'vk.com'
     const textSection = document.createElement('h1')
     textSection.append(desc)
 
-
-    description.appendChild(textSection)
-    if(textPreparation) {
-
-    }
     if(buttonText != '') {
-        description.appendChild(linkedButton)
-        linkedButton.addEventListener('mouseclick', () => {
-            window.location.href = link
-        })
+        if(listButtons === undefined) {
+            description.appendChild(linkedButton)
+            linkedButton.addEventListener('mouseclick', () => {
+                window.location.href = link
+            })
+        }
         result = description
     } else {
-        description.style.flexDirection = 'row'
-        textSection.style.textAlign = 'center'
+        if(listButtons === undefined){
+            description.appendChild(textSection)
+            description.style.flexDirection = 'row'
 
-        textSection.style.alignSelf = 'center'
-        hrefMoment.appendChild(description)
-        result = hrefMoment
+            hrefMoment.appendChild(description)
+            result = hrefMoment
+        } else {
+            result = description
+
+        }
+    }
+
+    if(listButtons !== undefined) {
+        const descriptionLayer = document.createElement('div')
+        descriptionLayer.className = 'layering-desc'
+
+        descriptionLayer.appendChild(textSection)
+        descriptionLayer.appendChild(linkedButton)
+
+        textSection.style.fontSize = '10px';
+        textSection.style.margin = '5px;'
+        const bannerButtonsLayer = document.createElement('div')
+        bannerButtonsLayer.className = 'button-layering'
+        for(let button of Object.entries(listButtons)) {
+            bannerButtonsLayer.appendChild(button[1])
+        }
+
+        description.appendChild(bannerButtonsLayer)
+        bannerButtonsLayer.appendChild(descriptionLayer)
     }
 
     console.log(description)
@@ -170,60 +199,69 @@ function imageBanner
      declineDescHiding,
      showingViaScroll,
      noBack,
-     listImages, listDescriptions)
+     listButtons)
 {
     
     const bannerContainer = document.createElement('div')
-    bannerContainer.className = 'promo-container'
+    bannerContainer.className = 'promo-container banner-content'
     const banner = document.createElement('img')
     banner.className = 'promo'
     banner.src = `../../src/img/banner/${src}`
+    const description = imageDesc(desc,buttonText,  link, textPreparation, noBack, listButtons)
 
-    const description = imageDesc(desc,buttonText,  link, textPreparation, noBack)
-
-    const loading = document.createElement('h1')
-    loading.append('Loading, please wait')
+    const loading = loadingDesc()
 
     const caseLink = document.createElement('a')
 
     caseLink.href = link;
 
-
-
-    banner.addEventListener('load', () => {
-        console.log('loaded')
-
-        bannerContainer.appendChild(banner)
-        if(buttonText === '') {
+    console.log('loaded')
+    loading.remove()
+    bannerContainer.appendChild(banner)
+    if(buttonText === '') {
+        if(listButtons === undefined){
             caseLink.appendChild(description)
             bannerContainer.appendChild(caseLink)
         } else {
             bannerContainer.appendChild(description)
         }
+    } else {
+        bannerContainer.appendChild(description)
+    }
 
-        if(showingViaScroll) {
-            onVisible(bannerContainer, () => {
-                hiding = false;
-                show(description, 'delayed')
-                console.log(bannerContainer + 'visible')
-            })
-        } else {
+    if(showingViaScroll) {
+        onVisible(bannerContainer, () => {
+            hiding = false;
+            show(description, 'delayed')
+            console.log(bannerContainer + 'visible')
+        })
+    } else {
 
-            bannerContainer.addEventListener('mouseover', () => {
-                hiding = false;
-                show(description)
-            }, {passive: true})
+        bannerContainer.addEventListener('mouseover', () => {
+            hiding = false;
+            show(description)
+        }, {passive: true})
 
-        }
+    }
 
-        if(!declineDescHiding) {
+    if(!declineDescHiding) {
 
-            bannerContainer.addEventListener('mouseleave', () => {
-                hiding = true;
-                hide(description)
-            })
+        bannerContainer.addEventListener('mouseleave', () => {
+            hiding = true;
+            hide(description)
+        })
 
-        }
+    }
+
+
+    banner.style.position = 'relative'
+    banner.appendChild(loading)
+
+    console.log(loading)
+
+
+    banner.addEventListener('load', () => {
+        loading.remove()
     })
 
     return bannerContainer;
@@ -231,16 +269,51 @@ function imageBanner
 
 function slide(element, slidePercent) {
     for(let child of element) {
-        if(child.className !== 'slide-navigation absolute left' && child.className !== 'slide-navigation absolute right' && child.className !== 'slide-line-list absolute') {
+        if(child.className !== 'slide-navigation absolute left'
+            && child.className !== 'slide-navigation absolute right'
+            && child.className !== 'slide-line-list absolute'
+            && child.className !== 'slide-navigation absolute') {
             child.style.transform = `translateX(${slidePercent}%)`
         }
     }
 }
 
-function imageBannerList(bannerList) {
-    const banList = document.createElement('row')
+function slideTo(elementsList, element) {
+    for(let child of elementsList) {
+        if(child.className !== 'slide-navigation absolute left'
+            && child.className !== 'slide-navigation absolute right'
+            && child.className !== 'slide-line-list absolute'
+            && child.className !== 'slide-navigation absolute') {
+            child.style.transform = `translateX(${element.style.translate}%)`
+        }
+    }
+}
+
+function slideOne(element, slidePercent) {
+        if(element.className !== 'slide-navigation absolute left'
+            && element.className !== 'slide-navigation absolute right'
+            && element.className !== 'slide-line-list absolute'
+            && element.className !== 'slide-navigation absolute') {
+            element.style.transform = `translateX(${slidePercent}%)`
+        }
+}
+
+function imageBannerList(bannerList, size) {
+    let autoSliding = true
+
+    const banList = document.createElement('div')
     banList.style.overflow = 'hidden'
-    banList.style.maxWidth = '100%'
+    if(size === 'small') {
+        banList.style.maxWidth = '60%'
+    } else if(size === 'medium') {
+        banList.style.maxWidth = '80%'
+    } else if(size === 'big') {
+        banList.style.maxWidth = '90%'
+    } else {
+        banList.style.maxWidth = '100%'
+    }
+
+    banList.className = 'banner-content'
     banList.style.display = 'flex'
     banList.style.flexDirection = 'row'
     banList.style.position = 'relative'
@@ -252,23 +325,34 @@ function imageBannerList(bannerList) {
     leftButton.className = 'slide-navigation absolute left'
     leftButton.style.maxHeight = '20%'
     leftButton.style.alignSelf = 'center'
-    leftButton.append('\u276E')
+    leftButton.append('\u2039')
 
     const rightButton = document.createElement('button')
     rightButton.className = 'slide-navigation absolute right'
     rightButton.style.maxHeight = '20%'
     rightButton.style.alignSelf = 'center'
-    rightButton.append('\u276F')
+    rightButton.append('\u203A')
 
     const slideLine = document.createElement('ul')
     slideLine.className = 'slide-line-list absolute'
+
+    const stopperButton = document.createElement('button')
+    stopperButton.className = 'slide-navigation absolute'
+    stopperButton.style.fontSize = '10vh'
+    stopperButton.style.float = 'bottom'
+    stopperButton.alignItems = 'center'
+    stopperButton.style.bottom = '1vh'
+    stopperButton.append('\u23F8') // \u1405 for play
 
     console.log(bannerList)
     let translation = 0;
     let bannerCounter = 0
     let bannerIndex = 1
+
+    let a = 0;
+
     for(const banner of Object.entries(bannerList)) {
-        banner[1].style.transition = '0.85s transform ease-in-out'
+        banner[1].style.transition = '1.45s transform ease-in-out'
         bannerCounter++
         banner[1].style.minWidth = '100%'
         banList.appendChild(banner[1])
@@ -277,9 +361,21 @@ function imageBannerList(bannerList) {
         slideLine.appendChild(slideLineItem)
     }
 
+
     banList.appendChild(leftButton)
     banList.appendChild(rightButton)
     banList.appendChild(slideLine)
+    banList.appendChild(stopperButton)
+
+    function toggleSlider() {
+        autoSliding = !autoSliding
+        if(autoSliding) {
+            stopperButton.innerText = '\u23F8'
+        } else {
+            stopperButton.innerText = '\u1405'
+
+        }
+    }
 
     function point(slideLineItem) {
         slideLineItem.style.background = '#A7B7D0FF'
@@ -296,24 +392,30 @@ function imageBannerList(bannerList) {
         slide(banList.children, translation - 100)
         translation -=100
         pointOut(slideLine.children[bannerIndex-1])
+        noneAnimate(banList.children[bannerIndex-1].querySelector('img'))
         bannerIndex += 1
         point(slideLine.children[bannerIndex-1])
+        scaleAnimate(banList.children[bannerIndex-1].querySelector('img'))
     }
 
     function slideLeft() {
         slide(banList.children, translation + 100)
         translation +=100
         pointOut(slideLine.children[bannerIndex-1])
+        noneAnimate(banList.children[bannerIndex-1].querySelector('img'))
         bannerIndex -= 1
         point(slideLine.children[bannerIndex-1])
+        scaleAnimate(banList.children[bannerIndex-1].querySelector('img'))
     }
 
     function returnSlidePosition() {
         slide(banList.children, 0)
         translation = 0
         pointOut(slideLine.children[bannerIndex-1])
+        noneAnimate(banList.children[bannerIndex-1].querySelector('img'))
         bannerIndex = 1
         point(slideLine.children[bannerIndex-1])
+        scaleAnimate(banList.children[bannerIndex-1].querySelector('img'))
     }
 
     function moveSlidePositionTOTheEnd() {
@@ -321,8 +423,10 @@ function imageBannerList(bannerList) {
         translation = (bannerCounter-1)*(-100)
         slide(banList.children, translation)
         pointOut(slideLine.children[bannerIndex-1])
+        noneAnimate(banList.children[bannerIndex-1].querySelector('img'))
         bannerIndex = bannerCounter
         point(slideLine.children[bannerIndex-1])
+        scaleAnimate(banList.children[bannerIndex-1].querySelector('img'))
     }
 
     function moveToSlideLinePoint(point) {
@@ -334,7 +438,6 @@ function imageBannerList(bannerList) {
     }
 
     function setSlideInterval() {
-
     }
 
     rightButton.addEventListener('mousedown', () => {
@@ -343,6 +446,7 @@ function imageBannerList(bannerList) {
         } else {
             returnSlidePosition()
         }
+
     })
 
 
@@ -353,15 +457,92 @@ function imageBannerList(bannerList) {
             moveSlidePositionTOTheEnd()
         }
     })
+    stopperButton.addEventListener('mousedown', () => {
+        toggleSlider()
+    })
 
-    setInterval(() => {
-        if(bannerIndex+1 <= bannerCounter) {
-            slideRight()
-        } else {
-            returnSlidePosition()
+    function scaleAnimate(element) {
+        element.style.transition = '1s all linear'
+        element.style.transform = 'scale(1.5)'
+        element.style.animation = '10s zoomIn linear'
+/*        element.addEventListener('animationend', () => {
+            element.style.transform = 'scale(1)'
+            element.style.animation = 'none'
+        })*/
+    }
+
+    function noneAnimate(element) {
+        element.style.transform = 'scale(1)'
+        element.style.animation = '1s zoomOut linear'
+    }
+
+    function autoSlide() {
+        if(autoSliding)
+        {
+            if (bannerIndex + 1 <= bannerCounter) {
+                slideRight()
+            } else {
+                returnSlidePosition()
+            }
         }
-    }, 10000)
+    }
+
+
+    setInterval(autoSlide, 10000)
+
+
 
     return banList
 }
+
+function fullScreenBanner(src, descTitle, buttonTitle, buttonLink, declineDescHiding,showViaScroll, noBack, textSize, listButtons) {
+    const banner = imageBanner(src, descTitle, buttonTitle, buttonLink, true, declineDescHiding,showViaScroll, noBack, listButtons)
+    banner.style.width = '100%'
+    banner.style.borderRadius = '0'
+    banner.style.position = 'relative'
+    banner.style.zIndex = '0'
+    if(textSize === 'big') {
+        banner.style.fontSize = '2em'
+    } else if(textSize === 'small') {
+        banner.style.fontSize = '0.5em'
+    } else if(textSize === 'moderate') {
+        banner.style.fontSize = '1em'
+    } else if(textSize === 'medium') {
+        banner.style.fontSize = '1.4em'
+    }
+    banner.addEventListener('scroll' ,() => {
+        show(banner)
+    })
+    return banner
+}
+
+function styledLayerButton(text, link, image) {
+    const teaserButton = document.createElement('a')
+    teaserButton.className = 'button-layer'
+    teaserButton.style.overflow = 'hidden'
+    teaserButton.style.position = 'relative'
+
+    const textLabel = imageDesc(text, '', link, false, false)
+    textLabel.style.zIndex = '10';
+        /*document.createElement('p')
+    textLabel.append(text)*/
+
+
+    if(image !== undefined) {
+
+        const buttonImage = document.createElement('img')
+        buttonImage.style.minHeight = '100%'
+        console.log(buttonImage)
+        buttonImage.src = image
+        teaserButton.appendChild(buttonImage)
+    }
+
+    teaserButton.appendChild(textLabel)
+
+    teaserButton.href = link
+
+    return teaserButton
+}
+
+
 

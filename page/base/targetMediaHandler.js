@@ -6,9 +6,9 @@ const targetTeaserContainer = targetBannersContainers[2]
 const targetAllVapesContainer = targetBannersContainers[3]
 const targetCompanyHistoryContainer = targetBannersContainers[4]
 
-function fullScreenBanner(src, descTitle, buttonTitle, buttonLink, declineDescHiding,showViaScroll, noBack, textSize) {
+/*function fullScreenBanner(src, descTitle, buttonTitle, buttonLink, declineDescHiding,showViaScroll, noBack, textSize) {
     const banner = imageBanner(src, descTitle, buttonTitle, buttonLink, true, declineDescHiding,showViaScroll, noBack)
-    banner.style.width = '90%'
+    banner.style.width = '100%'
     banner.style.borderRadius = '0'
     banner.style.position = 'relative'
     banner.style.zIndex = '0'
@@ -25,7 +25,7 @@ function fullScreenBanner(src, descTitle, buttonTitle, buttonLink, declineDescHi
         show(banner)
     })
     return banner
-}
+}*/
 
 const hotNew = fullScreenBanner('ellipse_hotNew.jpeg',
     ' TMT-46 - release in june 3046. ',
@@ -45,7 +45,7 @@ const hotNew4 = fullScreenBanner('ellipse_hotNew.jpeg',
     '')
 const hotNew3 = fullScreenBanner('ellipse_hotNew.jpeg',
     '',
-    'Drochevo Event',
+    'Some Event',
     'LLALKAA',
     true,
     false,
@@ -60,18 +60,26 @@ const hotNew2 = fullScreenBanner('desktopPromo1.jpg',
     false,
     '')
 
+teaserSlider = imageBannerList({hotNew, hotNew2, hotNew3, hotNew4}, '')
+
 const allVapes = fullScreenBanner('desktopPromo1.jpg', '' +
     'Vape Catalog', '', 'dodo', true, true, false, 'big')
 const companyHistory = fullScreenBanner('ellipse_companyHistory.jpeg', 'Ellipse history' +
     '', '', 'dodo', true, true, true, 'big' )
 const shop = fullScreenBanner('desktopPromo2.jpg', 'Ellipse Shop', '', 'shop.html', true, true, false, 'big' )
 
-teaserSlider = imageBannerList({hotNew, hotNew2, hotNew3, hotNew4})
+const teaserButton1 = styledLayerButton('hey', 'dodo.html', '../../src/img/banner/desktopPromo1.jpg')
+const teaserButton2 = styledLayerButton('hey', 'dodo')
+const teaserButton3 = styledLayerButton('hey', 'dodo')
+const teaserButton4 = styledLayerButton('hey', 'dodo')
+
+const buttonsTeaser = fullScreenBanner('desktopPromo2.jpg', 'here is description', 'here is the button', 'shop.html', true, true, false, 'big', {teaserButton1,teaserButton2,teaserButton3,teaserButton4} )
+
 targetHotNewContainer.appendChild(teaserSlider)
 targetAllVapesContainer.appendChild(allVapes)
 targetCompanyShopContainer.appendChild(shop)
 targetCompanyHistoryContainer.appendChild(companyHistory)
-
+/*targetTeaserContainer.appendChild(buttonsTeaser)*/
 
 /*
 targetHotNewContainer.appendChild(hotNew)

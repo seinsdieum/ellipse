@@ -144,12 +144,18 @@ div.page-container {
   text-shadow: 0 0 10px $web-black;
   -webkit-text-stroke: 0 black;
   font-size: 2*$size-large;
+  font-weight: 100;
+  font-kerning: none;
   align-self: center;
   max-height: unset !important;
   min-width: unset !important;
-  opacity: 0.3;
   transform: scale(1.0);
-  transition: 0.65s opacity, transform ease-in;
+  opacity: 0.1;
+  transition: 0.00s opacity, transform ease-in;
+}
+
+.slide-navigation:hover {
+  opacity: 0.6;
 }
 
 .slide-navigation:active {
@@ -160,28 +166,35 @@ div.page-container {
 
 .slide-line-list li{
 
-  min-width: 3vw;
-  max-width: 3vw;
-  min-height: 0.4vh;
-  max-height: 0.4vh;
+  min-width: 1vw;
+  max-width: 1vw;
+  min-height: 0.2vh;
+  max-height: 0.2vh;
   transform: scale(1);
-  margin: 0.4vw;
+  margin: 0 0.4vw 0  0.4vw;
+  /*
   border-radius: $border-radius-small;
+  */
   background: $web-white;
   transition: 0.65s all ease-in-out;
   display: inline-block;
 }
 
+.banner-content {
+
+}
+
 .slide-line-list {
   padding: 0;
   background: none;
-  bottom: 12%;
+  bottom: 10%;
   left: 40%;
   right: 40%;
-  align-items: center;
+
+  margin: 0 auto;
+
   text-decoration: none;
   text-align: center;
-  float: left;
 }
 
 /*@keyframes slide-line-going {
@@ -192,6 +205,26 @@ div.page-container {
     background: linear-gradient(90deg,$web-blue, $web-blue);
   }
 }*/
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+
+}
+
 
 
 .right {
@@ -213,7 +246,7 @@ div.page-container {
   background: none;
   align-items: center;
   pointer-events: inherit;
-
+  opacity: 0;
 }
 
 h1 {
@@ -348,11 +381,16 @@ footer a {
   color: $web-gray;
   transition: none;
   text-align: left;
-  max-width: 100%;
+  width: 100%;
 }
 
 footer a:hover {
   color: $web-blue;
+}
+
+footer a:hover p {
+  transform: scale(1.4) translateX(15%);
+
 }
 
 footer p {
@@ -362,6 +400,10 @@ footer p {
 footer h1 {
   font-size: $size-small;
   margin-bottom: 2vh;
+}
+
+.banner-content img {
+  transition: 1s all linear;
 }
 
 footer p {
@@ -404,6 +446,10 @@ footer {
 
 .footer-part ul.button-column-list, .footer-part li {
   min-width: 100%;
+}
+
+.footer-part li {
+  width: 100%;
 }
 
 button {
@@ -514,7 +560,7 @@ button.navigation {
   }
 }
 
-button.article-navigation, button.text-navigation, button.hamburger, button.underline-navigation {
+.article-navigation, .text-navigation, .hamburger, .underline-navigation {
   vertical-align: center  ;
   border: $border-invert;
   background: transparent;
@@ -528,11 +574,11 @@ button.article-navigation, button.text-navigation, button.hamburger, button.unde
   max-height: 10%;
 }
 
-button.text-navigation, button.hamburger, button.underline-navigation {
+.text-navigation, .hamburger, .underline-navigation {
   border: $border-transparent
 }
 
-button.navigation:hover, button.article-navigation:hover, button.text-navigation:hover, button.hamburger:hover {
+.navigation:hover, .article-navigation:hover, .text-navigation:hover, .hamburger:hover {
   border: $border-transparent;
   background: $web-white;
   transition: 0.06s all ease-out;
@@ -590,6 +636,63 @@ button.underline-navigation:hover {
   100% {
     opacity: 1;
   }
+}
+
+.button-layering {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-gap: 5%;
+
+  grid-template-rows: 30% 30% 30% ;
+  grid-template-columns: 25% 20% 45%;
+
+  grid-template-areas:
+  "third third description"
+  "fourth first description"
+  "fourth second description";
+}
+
+.button-layering .button-layer:nth-child(1) {
+  grid-area: first;
+}
+
+.button-layering .button-layer:nth-child(2) {
+  grid-area: second;
+}
+
+.button-layering .button-layer:nth-child(3) {
+  grid-area: third;
+}
+
+.button-layering .button-layer:nth-child(4) {
+  grid-area: fourth;
+}
+
+.button-layering .layering-desc {
+  grid-area: description;
+}
+
+.button-layer, .layering-desc {
+  background: $web-black;
+  text-decoration: none;
+  color: $web-white;
+}
+
+.layering-desc p {
+  margin: 0 auto;
+  vertical-align: center;
+  font-size: 1em;
+}
+
+.layering-desc {
+  display: flex;
+  flex-direction: column;
+}
+
+.layering-desc:nth-child(n) {
+  margin: 0 auto;
 }
 
 .fade {
@@ -731,6 +834,23 @@ svg.logo, img.logo {
   align-self: center;
 }
 
+.loading-point {
+  min-width: 100%;
+  color: white;
+  background: black;
+  max-width: 100%;
+  font-size: $size-large;
+  font-family: $font-main;
+  min-height: 100%;
+  max-height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
 button.premiere:hover svg, button.article-navigation:hover svg, button.text-navigation:hover svg, button.hamburger:hover svg,  button.premiere:hover img, button.article-navigation:hover img, button.text-navigation:hover img, button.hamburger:hover img {
   fill: black;
   stroke: $web-white !important;
@@ -804,10 +924,6 @@ button.hamburger {
   display: none
 }
 
-lol {
-
-}
-
 .img-desc {
   display: flex;
   flex-direction: column;
@@ -878,25 +994,25 @@ a:visited {
   color: $web-white;
 }
 
-@media screen and (min-width: 240px) and (max-width: 760px) {
+@media screen and (min-width: 0px) and (max-width: 760px) {
   button.premiere, button.premiere-moving {
     height: 5rem;
     width: 5rem;
   }
 
-  .promo {
-  }
 
-  header[name="main-header"] ul li button {
-
-  }
-
-  header[name="main-header"] ul:nth-child(2) li {
+  header[name="main-header"] ul li button.text-navigation {
     display: none;
   }
 
-  svg.mobile, img.mobile {
-    display: block;
+  header[name="main-header"] .text-navigation {
+    width: 4.5rem;
+    height: 100%;
+  }
+
+  .text-navigation svg {
+    width: 100%;
+    height: 100%;
   }
 
   .mobile {
@@ -937,7 +1053,7 @@ a:visited {
 
   button.hamburger {
     display: block;
-    max-height: 100%;
+    max-width: 20%;
   }
 
   header.warning h1 {
@@ -1001,10 +1117,6 @@ a:visited {
     justify-content: space-between;
   }
 
-  button.article-navigation:nth-child(3n+1) {
-
-  }
-
   button.slide-navigation.absolute {
     max-height: unset !important;
     min-width: unset !important;
@@ -1018,8 +1130,3 @@ a:visited {
 
 }
 
-@media screen and (min-width: 0px) and (max-width: 240px) {
-  body {
-    display: grid;
-  }
-}
