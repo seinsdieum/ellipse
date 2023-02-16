@@ -560,7 +560,7 @@ button.navigation {
   }
 }
 
-button.article-navigation, button.text-navigation, button.hamburger, button.underline-navigation {
+.article-navigation, .text-navigation, .hamburger, .underline-navigation {
   vertical-align: center  ;
   border: $border-invert;
   background: transparent;
@@ -574,11 +574,11 @@ button.article-navigation, button.text-navigation, button.hamburger, button.unde
   max-height: 10%;
 }
 
-button.text-navigation, button.hamburger, button.underline-navigation {
+.text-navigation, .hamburger, .underline-navigation {
   border: $border-transparent
 }
 
-button.navigation:hover, button.article-navigation:hover, button.text-navigation:hover, button.hamburger:hover {
+.navigation:hover, .article-navigation:hover, .text-navigation:hover, .hamburger:hover {
   border: $border-transparent;
   background: $web-white;
   transition: 0.06s all ease-out;
@@ -924,10 +924,6 @@ button.hamburger {
   display: none
 }
 
-lol {
-
-}
-
 .img-desc {
   display: flex;
   flex-direction: column;
@@ -998,25 +994,25 @@ a:visited {
   color: $web-white;
 }
 
-@media screen and (min-width: 240px) and (max-width: 760px) {
+@media screen and (min-width: 0px) and (max-width: 760px) {
   button.premiere, button.premiere-moving {
     height: 5rem;
     width: 5rem;
   }
 
-  .promo {
-  }
 
-  header[name="main-header"] ul li button {
-
-  }
-
-  header[name="main-header"] ul:nth-child(2) li {
+  header[name="main-header"] ul li button.text-navigation {
     display: none;
   }
 
-  svg.mobile, img.mobile {
-    display: block;
+  header[name="main-header"] .text-navigation {
+    width: 4.5rem;
+    height: 100%;
+  }
+
+  .text-navigation svg {
+    width: 100%;
+    height: 100%;
   }
 
   .mobile {
@@ -1057,7 +1053,7 @@ a:visited {
 
   button.hamburger {
     display: block;
-    max-height: 100%;
+    max-width: 20%;
   }
 
   header.warning h1 {
@@ -1121,10 +1117,6 @@ a:visited {
     justify-content: space-between;
   }
 
-  button.article-navigation:nth-child(3n+1) {
-
-  }
-
   button.slide-navigation.absolute {
     max-height: unset !important;
     min-width: unset !important;
@@ -1138,8 +1130,3 @@ a:visited {
 
 }
 
-@media screen and (min-width: 0px) and (max-width: 240px) {
-  body {
-    display: grid;
-  }
-}

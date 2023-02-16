@@ -7,9 +7,8 @@
     <list default="true" id="8ec2ea99-4bd9-452f-83b9-4151fb573169" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/base/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/base/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/base/productMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/productMenu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/base/targetMediaHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/targetMediaHandler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/base/variousObjects.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/base/variousObjects.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/style/base-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/page/style/base-styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/style/base-styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/page/style/base-styles.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/style/base-styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/page/style/base-styles.scss" afterDir="false" />
@@ -128,6 +127,10 @@
       <workItem from="1675445178656" duration="439000" />
       <workItem from="1675720736715" duration="134000" />
       <workItem from="1675856490620" duration="332000" />
+      <workItem from="1676456525823" duration="1123000" />
+      <workItem from="1676462175326" duration="1310000" />
+      <workItem from="1676482187606" duration="958000" />
+      <workItem from="1676533561633" duration="6605000" />
     </task>
     <servers />
   </component>

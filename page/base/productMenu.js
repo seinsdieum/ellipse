@@ -44,7 +44,7 @@ function addProductMenuItems() {
         '')
     const hotNew3 = fullScreenBanner('ellipse_hotNew.jpeg',
         '',
-        'Drochevo Event',
+        'Some Event',
         'LLALKAA',
         true,
         false,
