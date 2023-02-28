@@ -20,18 +20,24 @@ function column() {
     return col
 }
 
-function articlePoint()
+function articlePoint(allCovered, notAbsolute)
 {
     let row = document.createElement('article')
     row.className = 'full-screen'
 
     row.style.background = 'black'
-    row.style.position = 'absolute'
-    row.style.left = '0'
-    row.style.right = '0'
-    row.style.top = 'auto'
+    if(!notAbsolute) {
+        row.style.position = 'absolute'
+        row.style.left = '0'
+        row.style.right = '0'
+        row.style.top = 'auto'
+    }
     row.style.borderRadius = '0'
-    row.style.aspectRatio = '16/9'
+    if(allCovered) {
+
+    } else {
+        row.style.aspectRatio = '16/9'
+    }
     row.style.zIndex = '100'
     return row
 }
@@ -54,40 +60,8 @@ function rightHeaderPos() {
     return distance
 }
 
-/*function text(str) {
-    return str
-}
-function header(str) {
-    return str
-}*/
-function switchImage(imageElement, list, number) {
-    number++
-    if (number == list.length) {
-        number = 0
-    }
-    imageElement.src = list[number];
-
-}
-
-
-
 const product = articlePoint()
 
-/*const productFirstRow = row()
-const productSecondRow = row()
-const productThirdRow = row()
-const productBanner = imageBanner()
-let productBannerImages = ('../../src/img/banner/promo1.jpg','../../src/img/banner/promo2.jpg')
-let thisImg = 1;
-productBanner.src = '../../src/img/banner/promo1.jpg'
-product.style.backgroundColor = 'black'
-productFirstRow.append(header('product'))
-productSecondRow.append(productBanner)
-productThirdRow.append(header('product'))
-switchImage(productBanner, productBannerImages, thisImg)
-product.appendChild(productFirstRow)
-product.appendChild(productSecondRow)
-product.appendChild(productThirdRow)*/
 const sign = articlePoint()
 
 const newPoint = articlePoint()
@@ -133,7 +107,6 @@ function showElement(elem) {
         if(parseFloat(el.style.opacity) > 0) {
             el.style.animation = 'none'
         } else {
-
             el.style.animation = `0.9s appearing ease-out`
         }
     }

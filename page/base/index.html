@@ -116,15 +116,16 @@
             </li>
 
         </ul>
-        <button name="company-button" class="text-navigation mobile">
+        <button name="burger-button" class="text-navigation mobile">
             <svg width="371" height="480" viewBox="0 0 371 480" fill="#BEBEBEFF" xmlns="http://www.w3.org/2000/svg">
                 <path d="M371 171C371 158.19 361.413 145.633 343.314 134.735C325.214 123.838 299.316 115.029 268.52 109.296C237.723 103.563 203.244 101.132 168.944 102.275C134.644 103.419 101.876 108.091 74.3103 115.769C46.7446 123.448 25.4694 133.828 12.867 145.75C0.264619 157.671 -3.1674 170.662 2.95527 183.267C9.07795 195.873 24.5136 207.596 47.5337 217.123C70.5538 226.651 100.25 233.606 133.295 237.211L185.5 171H371Z" fill="$web-white"/>
                 <path d="M0 309C-3.01065e-06 321.81 9.58655 334.367 27.6862 345.265C45.7858 356.162 71.6838 364.971 102.48 370.704C133.277 376.437 167.756 378.868 202.056 377.725C236.356 376.581 269.124 371.909 296.69 364.231C324.255 356.552 345.531 346.172 358.133 334.25C370.735 322.329 374.167 309.338 368.045 296.733C361.922 284.127 346.486 272.404 323.466 262.877C300.446 253.349 270.751 246.394 237.705 242.789L185.5 309L0 309Z" fill="$web-white"/>
             </svg>
         </button>
-
     </header>
+
     <article class="full-screen">
+        <header name="burger-menu" class="mobile"></header>
         <a>
             <div class="row banner"></div>
         </a>
@@ -145,7 +146,7 @@
             <div class="row banner"></div>
         </a>
         </article>
-        <footer>
+        <footer class="bottom-sticky">
             <div class="row top-sticky bg-black full-width bottom-marked">
                 <ul class="button-list">
                     <li>
@@ -345,10 +346,9 @@
     <script src="Navigation.js"></script>
     <script src="devicemotion.js"></script>
     <script src="variousObjects.js"></script>
-
-<script src="targetMediaHandler.js"></script>
-<script src="productMenu.js"></script>
-
-<script src="signMenu.js"></script>
+    <script src="targetMediaHandler.js"></script>
+    <script src="productMenu.js"></script>
+    <script src="mobileBase.js"></script>
+    <script src="signMenu.js"></script>
 </body>
 </html>
