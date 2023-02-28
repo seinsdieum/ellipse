@@ -26,17 +26,17 @@ function addProductMenuItems() {
     const item4Banner = imageBanner('ellipse_hotNew.jpeg', 'Easy vape mode. By Kali', '', 'TMT.html', false, false, false, true)
 
 
-    const hotNew = fullScreenBanner('ellipse_hotNew.jpeg',
-        ' TMT-46 - release in june 3046. ',
+    const hotNew1 = fullScreenBanner('ellipse_hotNew.jpeg',
+        'All vapes for you',
         '',
         'LLALKAA',
         true,
         true,
         true,
         '')
-    const hotNew4 = fullScreenBanner('ellipse_hotNew.jpeg',
+    const hotNew2 = fullScreenBanner('ellipse_hotNew.jpeg',
         '',
-        'Our future plans for enhancing your vaping experience',
+        'Hot new inventions',
         'LLALKAA',
         true,
         false,
@@ -44,22 +44,22 @@ function addProductMenuItems() {
         '')
     const hotNew3 = fullScreenBanner('ellipse_hotNew.jpeg',
         '',
-        'Some Event',
+        'Best luxury vaping solutions',
         'LLALKAA',
         true,
         false,
         true,
         '')
-    const hotNew2 = fullScreenBanner('desktopPromo1.jpg',
-        'Verigon I - first mind spirit in it`s kind',
-        '',
+    const hotNew4 = fullScreenBanner('desktopPromo1.jpg',
+        'Vape shop news',
+        'Check our daily inventions blog',
         'dodo',
         true,
         false,
         false,
         '')
 
-    const defSlider = imageBannerList({hotNew, hotNew2, hotNew3, hotNew4}, 'small')
+    const defSlider = imageBannerList({hotNew1, hotNew2, hotNew3, hotNew4}, 'small')
 
     row2.append(defSlider)
 

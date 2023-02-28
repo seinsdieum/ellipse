@@ -123,6 +123,10 @@ body {
   min-width: 320px;
 }
 
+.burger-target {
+  display: none;
+}
+
 div.page-container {
   display: flex;
   flex-direction: column;
@@ -197,15 +201,6 @@ div.page-container {
   text-align: center;
 }
 
-/*@keyframes slide-line-going {
-  0% {
-    background: linear-gradient(90deg,$web-blue, $web-white);
-  }
-  100% {
-    background: linear-gradient(90deg,$web-blue, $web-blue);
-  }
-}*/
-
 @keyframes zoomIn {
   0% {
     transform: scale(1);
@@ -224,8 +219,6 @@ div.page-container {
   }
 
 }
-
-
 
 .right {
   float: right;
@@ -422,6 +415,10 @@ footer {
 .top-sticky {
   position: sticky;
   top: 0;
+}
+
+.bottom-sticky {
+  position: sticky;
 }
 
 .bg-black {
@@ -1120,7 +1117,7 @@ a:visited {
   button.slide-navigation.absolute {
     max-height: unset !important;
     min-width: unset !important;
-    font-size: 5em !important;
+    font-size: 3.5em !important;
   }
 
   .img-desc button {

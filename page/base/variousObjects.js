@@ -298,6 +298,27 @@ function slideOne(element, slidePercent) {
         }
 }
 
+function Timer(f, t) {
+    let timer = setInterval(f,t)
+    this.stop = function () {
+        if(timer) {
+            clearInterval(timer)
+            timer = null
+        }
+    }
+    this.start = function () {
+        if(!timer) {
+            this.stop()
+            timer = setInterval(f, t)
+        }
+    }
+    this.reset = function(newT = t) {
+        t = newT
+        this.stop()
+        this.start()
+    }
+}
+
 function imageBannerList(bannerList, size) {
     let autoSliding = true
 
@@ -370,8 +391,10 @@ function imageBannerList(bannerList, size) {
     function toggleSlider() {
         autoSliding = !autoSliding
         if(autoSliding) {
+            slideInterval.start()
             stopperButton.innerText = '\u23F8'
         } else {
+            slideInterval.stop()
             stopperButton.innerText = '\u1405'
 
         }
@@ -379,7 +402,7 @@ function imageBannerList(bannerList, size) {
 
     function point(slideLineItem) {
         slideLineItem.style.background = '#A7B7D0FF'
-        slideLineItem.style.animation = '10s slide-line-going linear'
+        slideLineItem.style.animation = '15s slide-line-going linear'
     }
 
     function pointOut(slideLineItem) {
@@ -389,6 +412,9 @@ function imageBannerList(bannerList, size) {
     point(slideLine.firstChild)
 
     function slideRight() {
+        if(autoSliding) {
+            slideInterval.reset()
+        }
         slide(banList.children, translation - 100)
         translation -=100
         pointOut(slideLine.children[bannerIndex-1])
@@ -399,6 +425,9 @@ function imageBannerList(bannerList, size) {
     }
 
     function slideLeft() {
+        if(autoSliding) {
+            slideInterval.reset()
+        }
         slide(banList.children, translation + 100)
         translation +=100
         pointOut(slideLine.children[bannerIndex-1])
@@ -409,6 +438,9 @@ function imageBannerList(bannerList, size) {
     }
 
     function returnSlidePosition() {
+        if(autoSliding) {
+            slideInterval.reset()
+        }
         slide(banList.children, 0)
         translation = 0
         pointOut(slideLine.children[bannerIndex-1])
@@ -419,7 +451,9 @@ function imageBannerList(bannerList, size) {
     }
 
     function moveSlidePositionTOTheEnd() {
-
+        if(autoSliding) {
+            slideInterval.reset()
+        }
         translation = (bannerCounter-1)*(-100)
         slide(banList.children, translation)
         pointOut(slideLine.children[bannerIndex-1])
@@ -462,9 +496,9 @@ function imageBannerList(bannerList, size) {
     })
 
     function scaleAnimate(element) {
-        element.style.transition = '1s all linear'
+        element.style.transition = '10s all linear'
         element.style.transform = 'scale(1.5)'
-        element.style.animation = '10s zoomIn linear'
+       // element.style.animation = '10s zoomIn linear'
 /*        element.addEventListener('animationend', () => {
             element.style.transform = 'scale(1)'
             element.style.animation = 'none'
@@ -472,13 +506,13 @@ function imageBannerList(bannerList, size) {
     }
 
     function noneAnimate(element) {
+        element.style.transition = '1.45s all ease-in-out'
         element.style.transform = 'scale(1)'
-        element.style.animation = '1s zoomOut linear'
+        //element.style.animation = '1s zoomOut linear'
     }
 
     function autoSlide() {
-        if(autoSliding)
-        {
+        if (autoSliding) {
             if (bannerIndex + 1 <= bannerCounter) {
                 slideRight()
             } else {
@@ -487,20 +521,19 @@ function imageBannerList(bannerList, size) {
         }
     }
 
-
-    setInterval(autoSlide, 10000)
-
-
+    let slideInterval = new Timer(autoSlide, 15000)
+    slideInterval.start()
 
     return banList
 }
 
-function fullScreenBanner(src, descTitle, buttonTitle, buttonLink, declineDescHiding,showViaScroll, noBack, textSize, listButtons) {
+function fullScreenBanner(src, descTitle, buttonTitle, buttonLink, declineDescHiding,showViaScroll, noBack, textSize, listButtons, bannerHeight) {
     const banner = imageBanner(src, descTitle, buttonTitle, buttonLink, true, declineDescHiding,showViaScroll, noBack, listButtons)
     banner.style.width = '100%'
     banner.style.borderRadius = '0'
     banner.style.position = 'relative'
     banner.style.zIndex = '0'
+    banner.style.aspectRatio = '21/9'
     if(textSize === 'big') {
         banner.style.fontSize = '2em'
     } else if(textSize === 'small') {
@@ -509,6 +542,15 @@ function fullScreenBanner(src, descTitle, buttonTitle, buttonLink, declineDescHi
         banner.style.fontSize = '1em'
     } else if(textSize === 'medium') {
         banner.style.fontSize = '1.4em'
+    }
+    if(bannerHeight === 'small') {
+        banner.style.maxHeight = '1/6';
+    }
+    if(bannerHeight === 'smaller') {
+        banner.style.maxHeight = '1/5';
+    }
+    if(bannerHeight === 'normal') {
+        banner.style.maxHeight = '1/4';
     }
     banner.addEventListener('scroll' ,() => {
         show(banner)
